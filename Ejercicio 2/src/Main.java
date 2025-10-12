@@ -8,6 +8,5 @@ public class Main {
         System.out.println("Después de segunda modificación: "+puntuacion);
         puntuacion = 15;
         System.out.println("Puntuación final: "+puntuacion);
-
     }
 }
