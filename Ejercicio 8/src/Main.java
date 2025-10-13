@@ -8,8 +8,6 @@ public class Main {
         System.out.println("Introduce la altura del rectangulo: ");
         int altura = entrada.nextInt();
         int area = base * altura;
-        System.out.println("Base del rectangulo: "+base);
-        System.out.println("Altura del rectangulo: "+altura);
         System.out.println("Area del rectangulo: "+area);
     }
 }
