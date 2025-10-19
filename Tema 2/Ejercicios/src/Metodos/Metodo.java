@@ -53,6 +53,109 @@ public class Metodo {
         scanner.close();
     }
     public void ejercicio3(){
-
+    int valorInicial = 100;
+        System.out.println("Valor inicial: "+valorInicial);
+    valorInicial +=50;
+        System.out.println("Después de sumar (+=): "+valorInicial);
+    valorInicial -=30;
+        System.out.println("Después de restar (-=): "+valorInicial);
+    valorInicial *=2;
+        System.out.println("Después de multiplicar (+=): "+valorInicial);
+    valorInicial /=4;
+        System.out.println("Después de dividir (+=): "+valorInicial);
     }
+    public void ejercicio4(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce un número: ");
+        int op1 = scanner.nextInt();
+        int resto = op1%2;
+        String parImpar;
+        if (resto==0){
+            parImpar = "par";
+        }
+        else {
+            parImpar = "impar";
+        }
+        System.out.println("El número "+op1+" es "+parImpar+" (resto al dividir entre 2: "+resto+")");
+        scanner.close();
+    }
+    public void ejercicio5(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce tu edad:");
+        int edad = scanner.nextInt();
+        System.out.println("¿Tienes carnet de conducir?");
+        boolean carnet = scanner.nextBoolean();
+        boolean mayor = edad>=21;
+        boolean aptoAlquilar = mayor && carnet;
+        System.out.println("¿Eres mayor de 21 años?: "+mayor);
+        System.out.println("¿Tienes carnet?: "+carnet);
+        System.out.println("¿Puedes alquilar un coche?: "+aptoAlquilar);
+        scanner.close();
+    }
+    public void ejercicio6(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce el precio del producto:");
+        double precio = scanner.nextDouble();
+        System.out.println("Introduce el porcentaje de descuento:");
+        int descuento = scanner.nextInt();
+        double descontado = precio/100*descuento;
+        double precioFinal = precio-descontado;
+        System.out.printf("Precio original %.1f €%n",precio);
+        System.out.println("Descuento ("+descuento+"%): "+descontado+"€");
+        System.out.printf("Precio final: %.2f €", precioFinal);
+        scanner.close();
+    }
+    public void ejercicio7(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce tu edad: ");
+        int edad = scanner.nextInt();
+        System.out.println("¿Eres estudiante? (true/false)");
+        boolean estudiante = scanner.nextBoolean();
+        boolean menor = edad<26;
+        System.out.println("¿Eres menor de 26 años?: "+menor);
+        System.out.println("¿Eres estudiante?: "+estudiante);
+        boolean estudianteDiferente = !estudiante;
+        System.out.println("¿NO eres estudiante?: "+estudianteDiferente);
+        boolean descuentoEsp = estudiante && menor;
+        System.out.println("¿Tienes descuento joven?: "+menor);
+        System.out.println("¿Tienes descuento estudiante?: "+estudiante);
+        System.out.println("¿Tienes descuento especial?: "+descuentoEsp);
+
+        scanner.close();
+    }
+    public void ejercicio8(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce el primer número:");
+        int op1 = scanner.nextInt();
+        System.out.println("Introduce el segundo número:");
+        int op2 = scanner.nextInt();
+        System.out.println("Introduce el tercer número:");
+        int op3 = scanner.nextInt();
+        int suma = op1+op2+op3;
+        double promedio = ((double)op1+op2+op3)/3;
+        double operacion = ((double) op1*op2)/op3;
+        System.out.println("Suma de los tres números: "+suma);
+        System.out.println("Promedio: "+promedio);
+        System.out.println("Resultado de (número1 * número2) / número3: "+operacion);
+        scanner.close();
+    }
+    public void ejercicio9(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce la nota del primer examen:");
+        int nota1 = scanner.nextInt();
+        System.out.println("Introduce la nota del segundo examen:");
+        int nota2 = scanner.nextInt();
+        System.out.println("Introduce la nota del tercer examen:");
+        int nota3 = scanner.nextInt();
+        double media = ((double)nota1+nota2+nota3)/3;
+        System.out.println("Nota media: "+media);
+        boolean aprobado = media>=5;
+        boolean notable = media>=7 && media<9;
+        boolean sobresaliente = media>=9;
+        System.out.println("¿Ha aprobado? "+aprobado);
+        System.out.println("¿Tiene notable? "+notable);
+        System.out.println("¿Tiene sobresaliente? "+sobresaliente);
+        scanner.close();
+    }
+
 }
