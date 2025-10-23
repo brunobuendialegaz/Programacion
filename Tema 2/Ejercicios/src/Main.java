@@ -12,7 +12,7 @@ public class Main {
         //metodo.ejercicio7();
         //metodo.ejercicio8();
         //metodo.ejercicio9();
-
+        //metodo.ejercicio10();
 
     }
 }
