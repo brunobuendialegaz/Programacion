@@ -98,6 +98,25 @@ public class Metodos {
         );
 
     }
+    public void ejercicioMpo4(){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Introduce el numero de segundos:");
+        int entradaSegundos = s.nextInt();
+        int horas = entradaSegundos/3600;
+        int minutos = entradaSegundos/60%60;
+        int segundos = entradaSegundos%60;
+        System.out.printf("""
+                Número de segundos totales: %d
+                Número de horas: %d
+                Número de minutos: %d
+                Número de segundos: %d
+                """,
+                entradaSegundos,
+                horas,
+                minutos,
+                segundos);
+        s.close();
+    }
 
 
 
