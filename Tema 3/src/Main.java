@@ -9,7 +9,11 @@ public class Main {
         //t3.ej3();
         //t3.ej4();
         //t3.ej5();
-
+        //t3.ej6();
+        //t3.ej7();
+        //t3.ej8();
+        //t3.ej9();
+        t3.ej15();
         t3.scannerClose();
     }
 }
