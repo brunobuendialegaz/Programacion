@@ -205,10 +205,10 @@ public class T3 {
             }else if (edad>12&&edad<18&&dia!=2) {
                 precio=5;
                 System.out.printf("Precio de entrada: %.2f€.",precio);
-            }else if (edad>18&&edad<64&&dia==4) {
+            }else if (edad>18&&edad<=65&&dia==4) {
                 precio=7;
                 System.out.printf("Precio de entrada: %.2f€. Precio reducido los jueves",precio);
-            }else if (edad>18&&edad<64&&dia!=4) {
+            }else if (edad>18&&edad<=65&&dia!=4) {
                 precio=10;
                 System.out.printf("Precio de entrada: %.2f€.",precio);
             }else if (edad>65) {
