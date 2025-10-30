@@ -219,7 +219,6 @@ public class T3 {
         }else {
             System.out.println("El dia seleccionado no es valido.");
         }
-
     }
     public void ej14(){
         System.out.print("Introduce tu edad: ");
@@ -284,6 +283,41 @@ public class T3 {
         }
         double costeFinal =5+coste1+coste2+coste3;
         System.out.println("El precio final del envio es: "+costeFinal+"€");
+    }
+    public void ej16(){
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("\n------ Tabla del "+i+" ------\n");
+            for (int y = 0; y <= 10; y++) {
+                System.out.printf("       %d * %d = %d%n",i,y,i*y);
+            }
+        }
+    }
+    public void ej17() {
+        System.out.println("Introduce el numero de la primera tabla que quieras: ");
+        int tabla1 = s.nextInt();
+        System.out.println("Introduce el numero de la segunda tabla que quieras: ");
+        int tabla2 = s.nextInt();
+        if (tabla1 > tabla2) {
+            for (int i = tabla2; i <= tabla1; i++) {
+                System.out.println("\n------ Tabla del "+i+" ------\n");
+                for (int y = 0; y <= 10; y++) {
+                    System.out.printf("       %d * %d = %d%n", i, y, i * y);
+                }
+            }
+        } else if (tabla1 < tabla2) {
+
+            for (int i = tabla1; i <= tabla2; i++) {
+                System.out.println("\n------ Tabla del "+i+" ------\n");
+                for (int y = 0; y <= 10; y++) {
+                    System.out.printf("       %d * %d = %d%n", i, y, i * y);
+                }
+            }
+        } else {
+            System.out.println("\n------ Tabla del "+tabla1+" ------\n");
+            for (int y = 0; y <= 10; y++) {
+                System.out.printf("       %d * %d = %d%n", tabla1, y, tabla1 * y);
+            }
+        }
     }
 
     public void scannerClose(){

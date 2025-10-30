@@ -19,6 +19,8 @@ public class Main {
         //t3.ej13();
         //t3.ej14();
         //t3.ej15();
+        //t3.ej16();
+        t3.ej17();
         t3.scannerClose();
     }
 }
