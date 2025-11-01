@@ -1,5 +1,6 @@
 package ejerciciosT3;
 
+import java.math.BigInteger;
 import java.time.DayOfWeek;
 import java.time.format.TextStyle;
 import java.util.Locale;
@@ -292,7 +293,7 @@ public class T3 {
             }
         }
     }
-    public void ej17() {
+    public void ej17(){
         System.out.println("Introduce el numero de la primera tabla que quieras: ");
         int tabla1 = s.nextInt();
         System.out.println("Introduce el numero de la segunda tabla que quieras: ");
@@ -319,7 +320,201 @@ public class T3 {
             }
         }
     }
-
+    public void ejSw1(){
+        System.out.print("Introduce un numero (1-7): ");
+        int dia = s.nextInt();
+        String diaNombre = "dia no valido";
+        /*switch (dia){
+            case 1:
+                diaNombre = "Lunes";
+            break;
+            case 2:
+                diaNombre = "Martes";
+            break;
+            case 3:
+                diaNombre = "Miercoles";
+            break;
+            case 4:
+                diaNombre = "Jueves";
+            break;
+            case 5:
+                diaNombre = "Viernes";
+            break;
+            case 6:
+                diaNombre = "Sábado";
+            break;
+            case 7:
+                diaNombre = "Domingo";
+            break;
+        }*/
+        switch (dia){
+            case 1 -> diaNombre="lunes";
+            case 2 -> diaNombre="martes";
+            case 3 -> diaNombre="miércoles";
+            case 4 -> diaNombre="jueves";
+            case 5 -> diaNombre="viernes";
+            case 6 -> diaNombre="sábado";
+            case 7 -> diaNombre="domingo";
+        }
+        System.out.println("El dia "+dia+" es "+diaNombre+".");
+    }
+    public void ejSw2(){
+        System.out.print("Introduce tu nota (A-F): ");
+        String nota = s.next();
+        String notaNombre = "Nota no valida";
+        switch (nota.toLowerCase()){
+            case "a" -> notaNombre="Excelente";
+            case "b" -> notaNombre="Muy bien";
+            case "c" -> notaNombre="Bien";
+            case "d" -> notaNombre="Suficiente";
+            case "f" -> notaNombre="Insuficiente";
+            default -> {
+                System.out.println("Calificación no valida");
+            return;}
+        }
+        System.out.println("Tu nota es "+nota+", has sacado un "+notaNombre+".");
+    }
+    public void ejSw3(){
+        System.out.print("Introduce el primer número: ");
+        int num1 = s.nextInt();
+        System.out.print("Introduce el segundo número: ");
+        int num2 = s.nextInt();
+        System.out.print("introduce el operador: ");
+        String operador = s.next();
+        switch (operador){
+            case "+" -> System.out.println("El resultado es: "+(num1+num2));
+            case "-" -> System.out.println("El resultado es: "+(num1-num2));
+            case "*" -> System.out.println("El resultado es: "+(num1*num2));
+            case "/" -> System.out.println("El resultado es: "+((double)num1/num2));
+            default -> System.out.println("operador no valido.");
+        }
+    }
+    public void ejSw4(){
+        System.out.printf("""
+                --- MENÚ ---
+                1. Ver perfil
+                2. Configuración
+                3. Ayuda
+                4. Salir%n
+                """);
+        System.out.print("Elige una opción: ");
+        int opt = s.nextInt();
+        switch (opt){
+            case 1 -> System.out.println("Has seleccionado: Ver perfil.");
+            case 2 -> System.out.println("Has seleccionado: Configuración.");
+            case 3 -> System.out.println("Has seleccionado: Ayuda.");
+            case 4 -> System.out.println("Has seleccionado: Salir.");
+            default -> System.out.println("Selección no valida.");
+        }
+    }
+    public void ejSw5(){
+        System.out.print("Introduce el numero del mes: ");
+        int mes = s.nextInt();
+        switch (mes){
+            case 12,1,2 -> System.out.println("El mes "+mes+" corresponde a: Invierno");
+            case 3,4,5 -> System.out.println("El mes "+mes+" corresponde a: Primavera");
+            case 6,7,8 -> System.out.println("El mes "+mes+" corresponde a: Verano");
+            case 9,10,11 -> System.out.println("El mes "+mes+" corresponde a: Otoño");
+            default -> System.out.println("El mes que has elegido no es valido");
+        }
+    }
+    public void ejSw6(){
+        System.out.print("Introduce un número del 1 al 10: ");
+        int tabla = s.nextInt();
+        switch (tabla){
+            case 1,2,3,4,5,6,7,8,9,10 ->{
+                System.out.println("------Tabla del "+tabla+"------\n");
+                for (int i = 0; i <= 10; i++) {
+                    System.out.printf("       %d * %d = %d%n", tabla, i, i * i);
+                }
+            }
+            default -> System.out.println("Has elegido un numero no valido");
+        }/*
+        System.out.print("Introduce un número del 1 al 10: ");
+        int tabla = s.nextInt();
+            if (tabla>0&&tabla<=10){
+                System.out.println("------Tabla del "+tabla+"------\n");
+                for (int i = 0; i <= 10; i++) {
+                    System.out.printf("       %d * %d = %d%n", tabla, i, i * i);
+                }
+            } else {
+            System.out.println("Has elegido un numero no valido");
+        }*/
+    }
+    public void ejSw7(){
+        System.out.print("Introduce un número: ");
+        int num = s.nextInt(), resultado = 0;
+        System.out.print("Sumando: ");
+        for (int i = 1; i <= num; i++) {
+            switch (i) {
+                case 1 -> System.out.print(i);
+                default -> System.out.print(" + " + i);
+            }
+            resultado += i;
+        }
+        System.out.println("\nLa suma de los números del 1 al "+num+" es: "+resultado+". (Dani pesaaaaaao)");
+    }
+    public void ejSw8(){
+        System.out.print("Introduce un número: ");
+        int numero = s.nextInt();
+        int par = 0, impar = 0;
+        for (int i = 1; i <=numero; i++) {
+            if ((i%2)==0){
+                par++;
+            }else {
+                impar++;
+            }
+        }
+        System.out.printf("""
+                \nRecorriendo números del 1 al %d...
+                Números pares encontrados: %d.
+                Números impares encontrados: %d.             
+                """,numero, par, impar
+                );
+    }
+    public void ejSw9(){
+        System.out.print("Introduce un numero positivo: ");
+        int num = s.nextInt();
+        BigInteger calculo = BigInteger.valueOf(num);
+        String factorial = String.valueOf(num);
+        System.out.printf("Calculando %d!",num);
+        for (int i = num; i > 0 ; i--) {
+            if (i!=num){
+                calculo=calculo.multiply(BigInteger.valueOf(i));
+                factorial +=" x "+i;
+            }
+        }
+        System.out.println("\n"+factorial);
+        System.out.println("El factorial de "+num+" es: "+calculo);
+    }
+    public void ejSw10(){
+        System.out.printf("""
+                --- EJERCICIOS ---
+                  1. Flexiones.
+                  2. Abdominales.
+                  3. Sentadillas.\n
+                """);
+        System.out.print("Elije un ejercicio (1-3): ");
+        int ej = s.nextInt();
+        String ejercicio = "ejercicio no valido";
+        switch (ej){
+            case 1 -> ejercicio = " Flexiones ";
+            case 2 -> ejercicio = " Flexiones ";
+            case 3 -> ejercicio = " Flexiones ";
+            default -> {System.out.println("Has elegido un "+ejercicio); return;}
+        }
+        System.out.print("\n¿Cuantas repeticiones ");
+        int rep = s.nextInt();
+        System.out.println("");
+        for (int i = 1; i <= rep; i++) {
+            if (i==1){
+                System.out.println("Has elegido:"+ejercicio+"\nRepetición "+i+" completada.");
+            }else {
+                System.out.println("Repetición "+i+" completada.");
+            }
+        }
+        System.out.printf("¡Ejercicio completado! Has hecho %d%s", rep, ejercicio);
+    }
     public void scannerClose(){
         s.close();
     }
