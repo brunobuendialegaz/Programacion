@@ -2,7 +2,10 @@ package ejerciciosT3;
 
 import java.math.BigInteger;
 import java.time.DayOfWeek;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -514,6 +517,153 @@ public class T3 {
             }
         }
         System.out.printf("¡Ejercicio completado! Has hecho %d%s", rep, ejercicio);
+    }
+    public void ejDw1(){
+        System.out.print("Indica un numero hasta el que quieras contar: ");
+        int num = s.nextInt(), contador = 1;
+        while(contador<=num){
+            System.out.println(contador);
+            contador++;
+        }
+        System.out.println("Fin del conteo.");
+    }
+    public void ejDw2(){
+        String contrasenia = "1234",contraseniaIntento;
+        do {
+            System.out.print("Introduce tu contraseña: ");
+            contraseniaIntento = s.next();
+            if (!contrasenia.equals(contraseniaIntento)){
+                System.out.println("Contraseña incorrecta. Intentelo de nuevo.");
+            }
+        }while (!contrasenia.equals(contraseniaIntento));
+        System.out.println("Contraseña correcta, acceso permitido.");
+    }
+    public void ejDw3(){
+        System.out.print("Introduce un numero (para terminar el programa introduce 0 o negativo): ");
+        int num = s.nextInt(), suma = 0;
+        while (num>0){
+            suma = num+suma;
+            System.out.println("Suma actual: "+suma);
+            System.out.print("Introduce un numero (para terminar el programa introduce 0 o negativo): ");
+            num = s.nextInt();
+        }
+        System.out.println("Fin del programa, el resultado es : "+suma);
+    }
+    public void ejDw4(){
+        int min = 1, max = 10, numSecreto = (int) (Math.random()* (max - min + 1)) + min, numIntento, intentos = 0;
+        System.out.print("Intenta adivinar un numero del 1 al 10: ");
+        numIntento = s.nextInt(); intentos++;
+        do {
+            if (numIntento>numSecreto){
+                System.out.print("El número es mayor que tu objetivo. Intentalo de nuevo: ");
+                numIntento = s.nextInt(); intentos++;
+            } else if (numIntento<numSecreto) {
+                System.out.print("El numero es menor que tu objetivo. Intentalo de nuevo: ");
+                numIntento = s.nextInt(); intentos++;
+            }
+        }while (numSecreto!=numIntento);
+        System.out.println("¡Correcto! Has adivinado el numero en "+ intentos+" intentos.");
+    }
+    public void ejDw5(){
+        int opcion;
+        LocalTime hora = LocalTime.now();
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
+        do {
+            System.out.printf("---- MENÚ ----%n1. Saludar%n2. Despedirse%n3. Ver hora%n4. Salir%n");
+            opcion = s.nextInt();
+            switch (opcion){
+                case 1 -> System.out.println("Hola, ¿Como estas?");
+                case 2 -> System.out.println("¡¡No te despidas aun!!");
+                case 3 -> {
+                    String horaFormateada = hora.format(formato);
+                    System.out.println("Son las "+horaFormateada+".");
+                }
+                case 4 -> System.out.println("¡hasta luego!");
+                default -> System.out.println("Opción no valida.");
+            }
+        }while (opcion!=4);
+    }
+    public void ejDw6(){
+        System.out.print("Introduce un número para hacer una cuenta regresiva: ");
+        int num = s.nextInt();
+        System.out.println("Cuenta atras:");
+            while (num>0){
+                System.out.println(num);
+                num--;
+            }
+            System.out.println("¡Despegue!");
+    }
+    public void ejDw7(){
+        System.out.print("¿Cuantas calificaciones vas a introducir? ");
+        int cMedia = s.nextInt(), cantidad = 1;
+        double nota=0;
+        while (cantidad<=cMedia){
+            System.out.printf("Introduce la calificación %d: ",cantidad);
+            nota += s.nextDouble();
+            cantidad++;
+        }
+        System.out.printf("Suma total: %.1f%nPromedio calificaciones: %.2f",nota,nota/cMedia);
+    }
+    public void ejDw8(){
+        System.out.print("Introduce tu edad: ");
+        int edad = s.nextInt();
+        do {
+            if (edad<0||edad>120){
+                System.out.print("edad no valida, debe estar entre 0 y 120\nIntroduce tu edad: ");
+                edad = s.nextInt();
+            }
+        }while (edad<0||edad>120);
+        System.out.printf("Edad válida: %d años. ¡Gracias!",edad);
+    }
+    public void ejDw9(){
+        System.out.print("¿Cuantos estudiantes hay?: ");
+        int nEstudiante = s.nextInt(), estudiante = 0;
+        String calificacion = "F";
+        int[] nota = new int[nEstudiante];
+        while (estudiante<nEstudiante){
+            System.out.printf("Introduce la nota del estudiante %d (0-10): ",estudiante);
+            nota[estudiante] = s.nextInt();
+            estudiante++;
+        }
+        System.out.println("--------------CALIFICACIONES--------------");
+        for (int i = 0; i <nEstudiante; i++){
+            switch (nota[i]){
+                case 1,2 -> calificacion = "F";
+                case 3,4 -> calificacion = "D";
+                case 5,6 -> calificacion = "C";
+                case 7,8 -> calificacion = "B";
+                case 9,10 -> calificacion = "A";
+            }
+            System.out.printf("Estudiante %d: %d puntos = Calificación: %s%n",i+1,nota[i],calificacion);
+        }
+    }
+    public void ejDw10(){
+        int saldo = 1000,opcion,modificacion;
+        System.out.printf("--- CAJERO AUTOMÁTICO ---%nSaldo Inicial: %d€",saldo);
+        do {
+            System.out.printf("%n--- Menu ---%n1. Consultar saldo%n2. Retirar dinero%n3. Depositar dinero%n4. Salir%n");
+            opcion = s.nextInt();
+            switch (opcion){
+                case 1 -> System.out.print("Tu saldo actual es: "+saldo);
+                case 2 -> {
+                    System.out.print("¿Cuánto deseas retirar?: ");
+                    modificacion = s.nextInt();
+                    while (saldo<modificacion){
+                        System.out.print("El saldo no es suficiente, ¿Cuánto deseas retirar?: ");
+                        modificacion = s.nextInt();
+                    }
+                    saldo -= modificacion;
+                    System.out.println("Tras la retirada, tu saldo es de "+saldo+"€");
+                }
+                case 3 -> {
+                    System.out.print("¿Cuánto deseas ingresar?: ");
+                    modificacion = s.nextInt();
+                    saldo += modificacion;
+                    System.out.printf("Depósito exitoso. Has depositado: %d€%nNuevo saldo: %d€",modificacion,saldo);
+                }
+            }
+        }while (opcion>0&&opcion<4);
+        System.out.println("Gracias por usar el cajero. ¡Hasta luego!");
     }
     public void scannerClose(){
         s.close();

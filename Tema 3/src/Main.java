@@ -30,7 +30,17 @@ public class Main {
         //t3.ejSw7();
         //t3.ejSw8();
         //t3.ejSw9();
-        t3.ejSw10();
+        //t3.ejSw10();
+        //t3.ejDw1();
+        //t3.ejDw2();
+        //t3.ejDw3();
+        //t3.ejDw4();
+        //t3.ejDw5();
+        //t3.ejDw6();
+        //t3.ejDw7();
+        //t3.ejDw8();
+        //t3.ejDw9();
+        //t3.ejDw10();
         t3.scannerClose();
     }
 }
