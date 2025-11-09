@@ -658,6 +658,10 @@ public class T3 {
                 case 3 -> {
                     System.out.print("¿Cuánto deseas ingresar?: ");
                     modificacion = s.nextInt();
+                    while (modificacion<=0){
+                        System.out.print("El ingreso no puede ser negativo, ¿Cuánto deseas ingresar?: ");
+                        modificacion = s.nextInt();
+                    }
                     saldo += modificacion;
                     System.out.printf("Depósito exitoso. Has depositado: %d€%nNuevo saldo: %d€",modificacion,saldo);
                 }
