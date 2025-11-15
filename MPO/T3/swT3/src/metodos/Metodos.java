@@ -1,14 +1,12 @@
 package metodos;
 
 import com.sun.jdi.Value;
-import enums.Archivos;
-import enums.CategoriaPlato;
-import enums.HorasDia;
-import enums.Moneda;
+import enums.*;
 
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Metodos {
@@ -55,6 +53,27 @@ public class Metodos {
                 System.out.printf("Tienes %.2f€ y esto corresponde a %.2f Pesos",euros,euros*Moneda.PESO.getValorConversion());
             }
             default -> System.out.println("valor no soportado");
+        }
+    }
+    public void ejSwMpo3(){
+        int temperatura = 35;
+        switch (temperatura){
+            case int n when n<0 -> {
+                System.out.println("El tiempo esta helado");
+            }
+            case int n when n<15 -> {
+                System.out.println("Hace frio");
+            }
+            case int n when n<25 -> {
+                System.out.println("El tiempo es templado");
+            }
+            case int n when n<35 -> {
+                System.out.println("Hace calor");
+            }
+            case int n when n>=35 -> {
+                System.out.println("Hay calor extremo");
+            }
+            default -> System.out.println("Valor no contemplado.");
         }
     }
     public void ejSwMpo4(){
@@ -108,6 +127,16 @@ public class Metodos {
         }
         System.out.printf("son las %d de la %s!!",hora, horasEnum.toString());
     }
+    public void ejSwMpo7(){
+        ClasificacionJugador jugador = ClasificacionJugador.valueOf(ClasificacionJugador.getClasificacionJugador(50));
+        switch (jugador){
+            case PRINCIPIANTE -> System.out.printf("Tu premio es: %s por que eres un %s.", jugador.getPremio(),jugador.toString().toLowerCase());
+            case INTERMEDIO -> System.out.printf("Tu premio es: %s por que eres un %s.", jugador.getPremio(),jugador.toString().toLowerCase());
+            case AVANZADO -> System.out.printf("Tu premio es: %s por que eres un %s.", jugador.getPremio(),jugador.toString().toLowerCase());
+            case EXPERTO -> System.out.printf("Tu premio es: %s por que eres un %s.", jugador.getPremio(),jugador.toString().toLowerCase());
+            case MAESTRO -> System.out.printf("Tu premio es: %s por que eres un %s.", jugador.getPremio(),jugador.toString().toLowerCase());
+        }
+    }
     public void ejSwMpo8(){
         String extension = "jpg";
         Archivos tipoArchivo = Archivos.getPorExtension(extension);
@@ -127,7 +156,32 @@ public class Metodos {
         }*/
         System.out.printf("El archivo es %s y se puede abrir con %s.",extension,tipoArchivo.getPrograma());
     }
-
+    public void ejSwMpo9(){
+        double peso = 85.9;
+        double altura = 1.90;
+        double imc = peso/(altura*altura);
+        switch (imc){
+            case double n when n<18.5 -> {
+                System.out.printf("Tu imc es de %.2f por tanto estas bajo peso.", imc);
+            }
+            case double n when n<25 -> {
+                System.out.printf("Tu imc es de %.2f por tanto tienes un imc normal.", imc);
+            }
+            case double n when n<30 -> {
+                System.out.printf("Tu imc es de %.2f por tanto tienes sobrepeso.", imc);
+            }
+            case double n when n>=30 -> {
+                System.out.printf("Tu imc es de %.2f por tanto tienes obesidad.", imc);
+            }
+            default -> System.out.println("valor fuera de los parametros...");
+        }
+    }
+    public void ejSwMpo10(){
+        Random r = new Random();
+        int estadoPedido = r.nextInt(6)+1;
+        EstadoEnvio estadoEnum = EstadoEnvio.valueOf(EstadoEnvio.getNombreEstado(estadoPedido));
+        System.out.println("El estado de tu pedido es "+estadoEnum.toString().toLowerCase()+".");
+    }
     public int horaActual(){
         LocalTime ahora = LocalTime.now();
         int ahoraH = ahora.getHour();

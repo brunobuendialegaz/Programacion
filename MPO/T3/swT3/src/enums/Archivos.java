@@ -19,6 +19,7 @@ public enum Archivos {
     public String getPrograma(){
         return programa;
     }
+
     public static Archivos getPorExtension(String ext) {
         for (Archivos tipo : Archivos.values()) {
             for (String e : tipo.getExtension()) {
