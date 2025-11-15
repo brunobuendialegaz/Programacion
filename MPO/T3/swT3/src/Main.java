@@ -6,6 +6,9 @@ public class Main {
         Metodos metodos = new Metodos();
         //metodos.ejSwMpo1();
         //metodos.ejSwMpo2();
-        metodos.ejSwMpo8();
+        //metodos.ejSwMpo4();
+        //metodos.ejSwMpo5();
+        metodos.ejSwMpo6();
+        //metodos.ejSwMpo8();
     }
 }
