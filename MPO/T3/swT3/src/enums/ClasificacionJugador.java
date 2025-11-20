@@ -5,7 +5,7 @@ public enum ClasificacionJugador {
     INTERMEDIO(101,500,"Botellin de bebida"),
     AVANZADO(501,1000,"Psp pirata"),
     EXPERTO(1001,5000,"Macbook air"),
-    MAESTRO(5001,999999999,"850i bmw");
+    MAESTRO(5001,2147483647,"850i bmw");
 
     private final int valorMin;
     private final int valorMax;
