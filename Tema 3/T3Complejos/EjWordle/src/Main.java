@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -17,10 +18,10 @@ public class Main {
             aciertos = 0;
             acercamientos = 0;
             System.out.print("Introduce una palabra de 5 caracteres: ");
-            String palabraUsuario = s.nextLine();
+            String palabraUsuario = s.nextLine().toLowerCase();
             while (palabraUsuario.length()!=5){
                 System.out.print("La palabra no es valida, introduce otra: ");
-                palabraUsuario = s.nextLine();
+                palabraUsuario = s.nextLine().toLowerCase();
             }
             for (int i=0; i<5 ; i++){
                 if (palabraUsuario.equalsIgnoreCase(palabraRandom)){
