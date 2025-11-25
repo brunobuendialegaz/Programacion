@@ -116,25 +116,7 @@ public class Ejercicios {
         }
         System.out.println("Array inverso: "+Arrays.toString(numerosInverso));
     }
-
-    /*Pide al usuario cuantos estudiantes en una clase (20?)
-
-    Crea un array para guardar ints (0 a 10) para estudiantes
-
-            while para rellenar el array
-
-    bucle for para
-
-            for mostrar notas
-
-            for calcular promedio
-
-            for encontrar aprobados
-
-            for encontrar nota mas alta y baja
-
-
-             */
+    
     public void ej10(){
         System.out.print("¿Cuántos estudiantes hay?: ");
         int estudiantes = s.nextInt();
