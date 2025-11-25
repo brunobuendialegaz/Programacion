@@ -2,6 +2,7 @@ package ejercicios;
 
 import utilidadesArray.ArrayUtility;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ejercicios {
@@ -101,5 +102,78 @@ public class Ejercicios {
             }
         }
         System.out.printf("La palabra aparece %d veces",contador);
+    }
+
+    public void ej9(){
+        int[] numerosOriginal = new int[10];
+        a.arrayIntRandom(numerosOriginal.length,numerosOriginal,31);
+        a.recorrerArrayInt(numerosOriginal.length,numerosOriginal);
+        int[] numerosInverso = new int[10];
+        int contador = 0;
+        for (int i = 9; i >= 0; i--){
+            numerosInverso[i] = numerosOriginal[contador];
+            contador++;
+        }
+        System.out.println("Array inverso: "+Arrays.toString(numerosInverso));
+    }
+
+    /*Pide al usuario cuantos estudiantes en una clase (20?)
+
+    Crea un array para guardar ints (0 a 10) para estudiantes
+
+            while para rellenar el array
+
+    bucle for para
+
+            for mostrar notas
+
+            for calcular promedio
+
+            for encontrar aprobados
+
+            for encontrar nota mas alta y baja
+
+
+             */
+    public void ej10(){
+        System.out.print("¿Cuántos estudiantes hay?: ");
+        int estudiantes = s.nextInt();
+        double[] notas = new double[estudiantes];
+        int contador = 0;
+
+        while (contador<estudiantes){
+            System.out.print("Introduce la nota del estudiante "+(contador+1)+": ");
+            notas[contador] = s.nextDouble();
+            contador++;
+        }
+
+        System.out.println("\n--- REPORTE DE CALIFICACIONES ---");
+
+        System.out.println("Calificaciones: "+Arrays.toString(notas));
+
+        int aprobados = 0;
+        double total = 0, notaAlta = 5, notaBaja = 5;
+        for (int i = 0; i < notas.length; i++){
+            total += notas[i];
+            if (notas[i]<notaBaja){
+                notaBaja=notas[i];
+            }
+            if (notas[i]>notaAlta){
+                notaAlta=notas[i];
+            }
+            if (notas[i]>=5){
+                aprobados++;
+            }
+        }
+        System.out.printf("""
+                Promedio de la clase: %.1f
+                Estudiantes aprobados: %d
+                Nota más alta: %.1f
+                Nota más baja: %.1f
+                """,
+                (total/estudiantes),
+                aprobados,
+                notaAlta,
+                notaBaja);
     }
 }
