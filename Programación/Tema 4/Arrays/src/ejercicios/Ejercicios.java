@@ -116,7 +116,7 @@ public class Ejercicios {
         }
         System.out.println("Array inverso: "+Arrays.toString(numerosInverso));
     }
-    
+
     public void ej10(){
         System.out.print("¿Cuántos estudiantes hay?: ");
         int estudiantes = s.nextInt();
