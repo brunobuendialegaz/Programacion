@@ -28,5 +28,23 @@ public class Ejercicios {
     public void ej5(){
         System.out.println("¿Has podido acceder?: "+u.intentarLogin("Bruno", "Pepito"));
     }
+    public void ej6(){
+        String[] tareas = {"Hacer la compra","Comer patatas fritas", "Programar URGENTE", "Verse la clase de olga"};
+        System.out.println(u.procesarTareas(tareas));
+    }
+    public void ej7(){
+        u.generarFibonacci(10000);
+    }
+    public void ej8(){
+        int[] edades = {-80,16,131,8,30,34,180,-5,-199};
+        u.mostrarEdadesValidas(edades);
+    }
+    public void ej9(){
+        String texto = "Ahora mismo estoy un poco cansado de este ejercicio";
+        String[] palabrasProhibidas = {"Ahora", "solo", "programar"};
+        System.out.println("El texto tiene "+u.contarVocales(texto)+" vocales");
+        System.out.println("¿El texto contiene alguna palabra prohibida? "+u.contienePalabraProhibida(texto, palabrasProhibidas));
+        System.out.println("¿Hay alguna palabra tan larga como el limite? "+u.primeraPalabraLarga(texto, 8));
+    }
 
 }

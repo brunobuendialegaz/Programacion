@@ -79,4 +79,79 @@ public class Utilidades {
         return false;
     }
 
+    public String procesarTareas(String[] tareas){
+
+        for (int i = 0; i < tareas.length; i++) {
+            if (tareas[i].contains("URGENTE")){
+                return tareas[i];
+            }
+        }
+        return "No hay tareas urgentes";
+    }
+
+    public void generarFibonacci(int limite){
+        int fibonacci1 = 0, fibonacci2 = 1, suma;
+        System.out.print("Secuencia de Fibonacci: [");
+        while(true){
+            suma = fibonacci1 + fibonacci2;
+            if(fibonacci1>limite){
+                break;
+            }
+            System.out.print(fibonacci1+" ");
+            fibonacci1=fibonacci2;
+            fibonacci2=suma;
+        }
+
+        System.out.print("]");
+    }
+
+    public int contarEdadesValidas(int[] edades){
+        int contadorEdad = 0;
+        for (int i = 0; i < edades.length; i++) {
+            if (edades[i]<0||edades[i]>120){
+                continue;
+            }
+            contadorEdad++;
+        }
+        return contadorEdad;
+    } // este puede ser private, solo es public si te interesa usar el int en operaciones por algo
+
+    public void mostrarEdadesValidas(int[] edades){
+        System.out.println(contarEdadesValidas(edades));
+    }
+
+    public int contarVocales(String texto){
+        String vocales = "aeiouAEIOUáéíóú";
+        int contador = 0;
+        for (int i = 0; i < texto.length(); i++) {
+            char letraActual = texto.charAt(i);
+            if(vocales.indexOf(letraActual) == -1){continue;}
+            contador++;
+        }
+        return contador;
+    }
+
+    public boolean contienePalabraProhibida(String texto, String[] palabrasProhibidas){
+        boolean tieneProhibida = false;
+        for (int i = 0; i < palabrasProhibidas.length; i++) {
+            if (texto.contains(palabrasProhibidas[i])){
+                tieneProhibida = true;
+            }
+        }
+        return tieneProhibida;
+    }
+
+    public String primeraPalabraLarga(String texto, int longitudMinima){
+        String[] palabras = texto.split(" ");
+        for (int i = 0; i < palabras.length; i++) {
+            if (palabras[i].length() >= longitudMinima){
+                return palabras[i];
+            }
+        }
+        return "No hay ninguna palabra tan larga como el limite.";
+    }
+
+
+
+
 }
