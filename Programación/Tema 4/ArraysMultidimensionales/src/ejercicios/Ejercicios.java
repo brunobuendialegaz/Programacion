@@ -68,4 +68,17 @@ public class Ejercicios {
         a.recorrerArrayBidimensional(numeros);
         a.contarParImpar(numeros);
     }
+
+    public void ej9(){
+        int tabla = 1;
+        int[][] tablas = new int[10][10];
+        for (int i = 0; i < tablas.length; i++) {
+            for (int j = 0; j < tablas[i].length; j++) {
+                System.out.print(tabla*(j+1)+" ");
+            }
+            System.out.println();
+            tabla ++;
+        }
+
+    }
 }
