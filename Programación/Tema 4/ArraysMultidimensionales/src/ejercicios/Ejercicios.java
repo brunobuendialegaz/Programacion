@@ -52,4 +52,13 @@ public class Ejercicios {
         a.recorrerArrayBidimensional(numeros);
         a.numAltoColumna(numeros);
     }
+
+    public void ej7(){
+        int[][] numerosOriginal = new int[3][4];
+        a.crearArrayInt(numerosOriginal, 20);
+        System.out.println("Array original: ");
+        a.recorrerArrayBidimensional(numerosOriginal);
+        System.out.println("\nArray transpuesto: ");
+        a.transponerMatriz(numerosOriginal);
+    }
 }

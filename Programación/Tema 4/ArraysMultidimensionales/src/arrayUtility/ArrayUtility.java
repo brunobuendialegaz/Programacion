@@ -98,7 +98,16 @@ public class ArrayUtility {
             }
             System.out.printf("Numero alto de la columna %d: %d%n",i,numAlto);
         }
+    }
 
+    public void transponerMatriz(int[][] array){
+        int[][] arrayTras = new int[array[0].length][array.length];
+        for (int i = 0; i < arrayTras.length; i++) {
+            for (int j = 0; j < arrayTras[i].length; j++) {
+                arrayTras[i][j]=array[j][i];
+            }
+        }
+        recorrerArrayBidimensional(arrayTras);
     }
 
         
