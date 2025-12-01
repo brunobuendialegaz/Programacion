@@ -86,6 +86,21 @@ public class ArrayUtility {
             }
         }
     }
+        
+    public void numAltoColumna(int[][] array){
+        int numAlto;
+        for (int i = 0; i < array[0].length; i++) {
+            numAlto = 0;
+            for (int j = 0; j < array.length; j++) {
+                if (array[j][i]>numAlto) {
+                    numAlto=array[j][i];
+                }
+            }
+            System.out.printf("Numero alto de la columna %d: %d%n",i,numAlto);
+        }
 
+    }
+
+        
 
 }

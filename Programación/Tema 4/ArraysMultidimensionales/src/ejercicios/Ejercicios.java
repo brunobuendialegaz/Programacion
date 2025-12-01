@@ -2,7 +2,6 @@ package ejercicios;
 
 import arrayUtility.ArrayUtility;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ejercicios {
@@ -45,5 +44,12 @@ public class Ejercicios {
         a.crearArrayDouble(numeros,10);
         a.recorrerArrayBidDouble(numeros);
         a.mediaFila(numeros);
+    }
+
+    public void ej6(){
+        int[][] numeros = new int[3][4];
+        a.crearArrayInt(numeros, 50);
+        a.recorrerArrayBidimensional(numeros);
+        a.numAltoColumna(numeros);
     }
 }
