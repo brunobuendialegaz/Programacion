@@ -110,6 +110,22 @@ public class ArrayUtility {
         recorrerArrayBidimensional(arrayTras);
     }
 
-        
+        public void contarParImpar(int[][] array){
+            int par = 0, impar = 0;
+        for(int i = 0; i < array.length; i++){
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j]%2==0){
+                    par++;
+                }else{
+                    impar++;
+                }
+            }
+        }
+        System.out.printf("""
+                Numeros pares: %d
+                Numeros impares: %d
+                """,par,impar);
+    }
+
 
 }

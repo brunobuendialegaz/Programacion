@@ -61,4 +61,11 @@ public class Ejercicios {
         System.out.println("\nArray transpuesto: ");
         a.transponerMatriz(numerosOriginal);
     }
+    
+    public void ej8(){
+        int[][] numeros = new int[4][5];
+        a.crearArrayInt(numeros, 40);
+        a.recorrerArrayBidimensional(numeros);
+        a.contarParImpar(numeros);
+    }
 }
