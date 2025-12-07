@@ -21,14 +21,14 @@ public class Ej4 {
             bombo2[i] = s.nextLine();
         }
 
-        //Recorremos los bombos
+        //Recorremos los bombos con foreach
         System.out.println("Primer bombo: ");
-        for (int i = 0; i < bombo1.length; i++) {
-            System.out.print(bombo1[i]+"\t");
+        for (String item : bombo1) {
+            System.out.print(item+"\t");
         }
         System.out.println("\nSegundo bombo: ");
-        for (int i = 0; i < bombo2.length; i++) {
-            System.out.print(bombo2[i]+"\t");
+        for (String item : bombo2) {
+            System.out.print(item +"\t");
         }
 
         //Los convierto a listas, tengo que investigar sobre estas, pero se pueden usar funcionalidades chulas
