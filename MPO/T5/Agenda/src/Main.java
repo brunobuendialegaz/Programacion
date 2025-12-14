@@ -17,9 +17,7 @@ public class Main {
             System.out.println("5. Salir");
             opcion = s.nextInt();
             switch (opcion){
-                case 1 -> {
-                    agenda.agregarContacto();
-                }
+                case 1 -> agenda.agregarContacto();
                 case 2 -> {
                     System.out.println("Introduce algún dato del contacto a buscar (keysensitive): ");
                     String buscador = s.next();
@@ -30,20 +28,10 @@ public class Main {
                     String buscador = s.next();
                     agenda.borrarContacto(buscador);
                 }
-                case 4 -> {
-                    agenda.listaContactos();
-                }
-                case 5 -> {
-                    System.out.println("Saliendo del programa...");
-                }
+                case 4 -> agenda.listaContactos();
+                case 5 -> System.out.println("Saliendo del programa...");
             }
         }while (opcion!=5);
-
-
-
-
-
-
     }
 
 }
