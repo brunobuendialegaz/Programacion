@@ -79,4 +79,77 @@ public class Ejercicios {
         }
 
     }
+
+    public void ej10(){
+        System.out.print("¿Cuantos estudiantes hay? ");
+        int estudiantes = s.nextInt();
+        System.out.print("¿Cuantas asignaturas hay? ");
+        int asignaturas = s.nextInt();
+        double[][] notas = new double[estudiantes][asignaturas];
+        // pedir las notas
+        for (int i = 0; i < notas.length; i++) {
+            for (int j = 0; j < notas[i].length; j++) {
+                System.out.printf("Introduce nota de estudiante %d, asignatura %d: ",i+1,j+1);
+                notas[i][j] = s.nextInt();
+            }
+        }
+        // mostrar todas las notas
+        for(int i = 0; i < notas.length; i++){
+            if (i==0){
+                System.out.printf(" --- TABLA DE NOTAS --- %n");
+                System.out.printf("        ");
+                for (int j = 0; j < notas[i].length; j++) {
+                    System.out.printf("asig%d  ",j+1);
+                }
+            }
+                System.out.printf("\nest %d: ",i+1);
+            for (int j = 0; j < notas[i].length; j++) {
+                System.out.printf("  %.1f  ",notas[i][j]);
+            }
+        }
+        // promedios estudiante
+        System.out.printf("%n%n--- PROMEDIOS POR ESTUDIANTE ---%n");
+        for (int i = 0; i < notas.length; i++) {
+            double promedioEstudiante = 0;
+            System.out.printf("Estudiante %d: ",i+1);
+            for (int j = 0; j < notas[i].length; j++) {
+                promedioEstudiante += notas[i][j];
+            }
+            System.out.println(promedioEstudiante/notas[i].length);
+        }
+        // promedios asignaturas
+        System.out.printf("%n--- PROMEDIOS POR ASIGNATURA ---%n");
+        for (int i = 0; i < notas[0].length; i++) {
+            double promedioNota = 0;
+            System.out.printf("Asignatura %d: ",i+1);
+            for (int j = 0; j < notas.length; j++) {
+                promedioNota += notas[j][i];
+            }
+            System.out.println(promedioNota/notas.length);
+        }
+        // nota mas alta
+        double notaAlta = 0;
+        int estAlta = 0, asigAlta = 0;
+        for(int i = 0; i < notas.length; i++){
+            for (int j = 0; j < notas[i].length; j++) {
+                if (notaAlta<notas[i][j]){
+                    notaAlta = notas[i][j];
+                    estAlta = i+1;
+                    asigAlta = j+1;
+                    System.out.printf("""
+                %n--- NOTA MÁS ALTA ---
+                La nota más alta es %.1f (Estudiante %d, Asignatura %d)
+                """,notaAlta,estAlta,asigAlta);
+                } else if (notaAlta==notas[i][j]) {
+                    notaAlta = notas[i][j];
+                    estAlta = i+1;
+                    asigAlta = j+1;
+                    System.out.printf("""
+                Nota empatada más alta es %.1f (Estudiante %d, Asignatura %d)
+                """,notaAlta,estAlta,asigAlta);
+                }
+            }
+        }
+
+    }
 }
