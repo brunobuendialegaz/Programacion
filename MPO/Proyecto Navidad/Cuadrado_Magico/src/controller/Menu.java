@@ -1,8 +1,8 @@
-package agente;
+package controller;
 
 import java.util.Scanner;
 
-import controller.CuadradoMagico;
+import agente.CuadradoMagico;
 
 public class Menu {
 
