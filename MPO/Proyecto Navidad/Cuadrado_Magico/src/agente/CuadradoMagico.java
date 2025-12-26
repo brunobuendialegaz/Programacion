@@ -4,13 +4,17 @@ import java.util.ArrayList;
 
 public class CuadradoMagico {
 
+    //objeto cuadrado magico, toda la logica y ejecuciones van aqui
+
     private int tamanio;
     private int[][] cuadradoMagico;
-    private ArrayList<Integer> pool;
+    private ArrayList<Integer> pool; // utilizo una pool para ahorrar tiempo de ejecución tirando randoms sin sentido.
     private int constanteMagica; 
 
     public CuadradoMagico(){
     }
+
+    //Constructor utilizado en el ejercicio, solo tomo el tamaño de la matriz e inicializo todo en base a ese valor.
 
     public CuadradoMagico(int tamanio){
         this.tamanio = tamanio;
@@ -40,6 +44,7 @@ public class CuadradoMagico {
     }
 
 
+    //Inicializa la pool, tanto la primera vez como cada vez que falla el cuadrado
     private void rellenarPool(){
         pool.clear();
         for (int i = 0; i < tamanio*tamanio; i++) {
@@ -47,6 +52,7 @@ public class CuadradoMagico {
         }
     }
 
+    //cada vez que el cuadrado falla se reinician todos los valores a 0, es importante por que uso comprobaciones en base al 0.
     private void refrescarCuadrado(){
         for (int i = 0; i < cuadradoMagico.length; i++) {
             for (int j = 0; j < cuadradoMagico.length; j++) {
@@ -56,6 +62,8 @@ public class CuadradoMagico {
         }
     }
 
+    //Funciona como controller de la logica mas especifica. Utiliza comprobaciones intermedias y trata de desechar los bucles lo mas rapido posible.
+    //En caso de que el cuadrado sea correcto tambien llama al metodo mostrarCuadrado.
     public void rellenarCuadrado(){
         
         long contador =0L;
@@ -80,6 +88,7 @@ public class CuadradoMagico {
         mostrarCuadrado(contador);
     }
 
+    //Metodo para la primera diagonal, termina siempre con un numero que de la constante magica
     private void rellenarDiagonalPrincipal(){
         int numAleatorio;
         for (int i = 0; i < cuadradoMagico.length; i++) {
@@ -92,6 +101,8 @@ public class CuadradoMagico {
         }    
     }
 
+    //Metodo para la segunda diagonal, termina siempre con un numero que de la constante magica
+    //tiene en cuenta que uno de los numeros puede ser distinto de 0.
     private void rellenarDiagonalSecundaria(){
         int numAleatorio;
         for (int i = 0; i < cuadradoMagico.length; i++) {
@@ -107,6 +118,8 @@ public class CuadradoMagico {
         }
     }
 
+    //Rellena las filas, lo uso despues de las 2 diagonales. Mete todas las filas salvo la ultima buscando el numero necesario para que den la constante magica.
+    //En el caso de la ultima fila uso un comprobador de columnas para todas las columnas centrales (la primera y la ultima ya estan completas por las diagonales)
     private void rellenarFilas(){
         int numAleatorio;
         for (int i = 0; i < cuadradoMagico.length-1; i++) {
@@ -136,6 +149,7 @@ public class CuadradoMagico {
         }
     }
 
+    //Muestra el cuadrado con el formato indicado en el ejercicio. Solo se ejecuta una vez es correcto.
     private void mostrarCuadrado(long intentos){
         System.out.print("=== CUADRADO MÁGICO ENCONTRADO ===");
         for (int i = 0; i < cuadradoMagico.length; i++) {
@@ -148,6 +162,7 @@ public class CuadradoMagico {
         System.out.println("Intentos realizados: "+intentos);
     }
 
+    //metodos de comprobación
     private boolean comprobarFila(int i){
         int num = 0;
         for (int j = 0; j < cuadradoMagico.length; j++) {
@@ -196,6 +211,7 @@ public class CuadradoMagico {
         }
     }
 
+    //metodo de comprobación general
     private boolean comprobarCuadrado(){
         for (int i = 0; i < cuadradoMagico.length; i++) {
             if(!comprobarColumna(i)||!comprobarFila(i)){
@@ -208,7 +224,8 @@ public class CuadradoMagico {
         return true;
     }
 
-        private int ultimoFila(int i){
+    //buscadores de lus ultimos numeros de filas, columna y diagonales.
+    private int ultimoFila(int i){
         int num = 0;
         for (int j = 0; j < cuadradoMagico.length-1; j++) {
             num += cuadradoMagico[i][j];
