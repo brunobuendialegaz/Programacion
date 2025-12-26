@@ -6,20 +6,20 @@ public class CuadradoMagico {
 
     private int tamanio;
     private int[][] cuadradoMagico;
-    private ArrayList<Integer> pull;
+    private ArrayList<Integer> pool;
     private int constanteMagica; 
 
     public CuadradoMagico(){
         this.cuadradoMagico = new int[tamanio][tamanio];
         this.constanteMagica = (tamanio*(tamanio*tamanio+1))/2;
-        rellenarPull();
+        rellenarPool();
     }
 
     public CuadradoMagico(int tamanio){
         this.tamanio = tamanio;
         this.cuadradoMagico = new int[tamanio][tamanio];
         this.constanteMagica = (tamanio*(tamanio*tamanio+1))/2;
-        rellenarPull();
+        rellenarPool();
     }
 
     public int getTamanio() {
@@ -29,7 +29,7 @@ public class CuadradoMagico {
         return cuadradoMagico;
     }
     public ArrayList<Integer> getPull() {
-        return pull;
+        return pool;
     }
     public void setCuadradoMagico(int[][] cuadradoMagico) {
         this.cuadradoMagico = cuadradoMagico;
@@ -38,41 +38,41 @@ public class CuadradoMagico {
         this.tamanio = tamanio;
     }
     public void setPull(ArrayList<Integer> pull) {
-        this.pull = pull;
+        this.pool = pull;
     }
 
 
-    private void rellenarPull(){
-    this.pull = new ArrayList<>();
+    private void rellenarPool(){
+    this.pool = new ArrayList<>();
     int numero = 1;
     for (int i = 0; i < tamanio*tamanio; i++) {
-        pull.add(numero);
+        pool.add(numero);
         numero++;
     }
     }
 
     public void rellenarCuadrado(){
         int numAleatorio;
-        int contador = 0;
+        long contador =0L;
         do {
 
             for (int i = 0; i < cuadradoMagico.length; i++) {
                 for (int j = 0; j < cuadradoMagico.length; j++) {
                     if (j<cuadradoMagico.length-1) {
-                    numAleatorio = (int)(Math.random()*pull.size());
-                    cuadradoMagico[i][j] = pull.get(numAleatorio);
-                    pull.remove(numAleatorio);  
+                    numAleatorio = (int)(Math.random()*pool.size());
+                    cuadradoMagico[i][j] = pool.get(numAleatorio);
+                    pool.remove(numAleatorio);  
                     }else{
-                        cuadradoMagico[i][j]=
+                        cuadradoMagico[i][j]=ultimoFila(i);
                     }
 
                 }
                 if(!comprobarFila(i)){
-                    rellenarPull();
+                    rellenarPool();
                     break;
                 }
             }
-            rellenarPull();
+            rellenarPool();
             contador++;
             if ((contador%1000000)==0) {
                 System.out.println("Llevamos "+(contador/1000000)+" millones de intentos... Seguimos...");
@@ -83,7 +83,7 @@ public class CuadradoMagico {
         mostrarCuadrado(contador);
     }
 
-    private void mostrarCuadrado(int intentos){
+    private void mostrarCuadrado(long intentos){
         System.out.print("=== CUADRADO MÁGICO ENCONTRADO ===");
         for (int i = 0; i < cuadradoMagico.length; i++) {
             System.out.println();
@@ -112,7 +112,12 @@ public class CuadradoMagico {
         for (int j = 0; j < cuadradoMagico.length-1; j++) {
             num += cuadradoMagico[i][j];
         }
-        
+        int index = pool.indexOf(constanteMagica-num);
+        if (index!=-1) {
+            pool.remove(index);
+            return constanteMagica-num;
+        }
+        return -1;
     }
 
     
