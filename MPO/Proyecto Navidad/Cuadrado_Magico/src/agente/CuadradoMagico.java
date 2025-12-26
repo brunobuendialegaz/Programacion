@@ -10,16 +10,14 @@ public class CuadradoMagico {
     private int constanteMagica; 
 
     public CuadradoMagico(){
-        this.cuadradoMagico = new int[tamanio][tamanio];
-        this.constanteMagica = (tamanio*(tamanio*tamanio+1))/2;
-        rellenarPool();
     }
 
     public CuadradoMagico(int tamanio){
         this.tamanio = tamanio;
         this.cuadradoMagico = new int[tamanio][tamanio];
         this.constanteMagica = (tamanio*(tamanio*tamanio+1))/2;
-        rellenarPool();
+        this.pool = new ArrayList<>();
+        
     }
 
     public int getTamanio() {
@@ -43,44 +41,99 @@ public class CuadradoMagico {
 
 
     private void rellenarPool(){
-    this.pool = new ArrayList<>();
-    int numero = 1;
-    for (int i = 0; i < tamanio*tamanio; i++) {
-        pool.add(numero);
-        numero++;
+        pool.clear();
+        for (int i = 0; i < tamanio*tamanio; i++) {
+            pool.add(i+1);
+        }
     }
+
+    private void refrescarCuadrado(){
+        for (int i = 0; i < cuadradoMagico.length; i++) {
+            for (int j = 0; j < cuadradoMagico.length; j++) {
+                cuadradoMagico[i][j] = 0;  
+            }
+            
+        }
     }
 
     public void rellenarCuadrado(){
-        int numAleatorio;
+        
         long contador =0L;
         do {
-
-            for (int i = 0; i < cuadradoMagico.length; i++) {
-                for (int j = 0; j < cuadradoMagico.length; j++) {
-                    if (j<cuadradoMagico.length-1) {
-                    numAleatorio = (int)(Math.random()*pool.size());
-                    cuadradoMagico[i][j] = pool.get(numAleatorio);
-                    pool.remove(numAleatorio);  
-                    }else{
-                        cuadradoMagico[i][j]=ultimoFila(i);
-                    }
-
-                }
-                if(!comprobarFila(i)){
-                    rellenarPool();
-                    break;
-                }
-            }
+            refrescarCuadrado();
             rellenarPool();
+            
+            rellenarDiagonalPrincipal();
+            rellenarDiagonalSecundaria();
+            
+            if (!comprobarDiagonalPrincipal()||!comprobarDiagonalSecundaria()) {
+                continue;
+            }
+
+            rellenarFilas();
             contador++;
             if ((contador%1000000)==0) {
                 System.out.println("Llevamos "+(contador/1000000)+" millones de intentos... Seguimos...");
-                
             }
-
+            
         } while (!comprobarCuadrado());
         mostrarCuadrado(contador);
+    }
+
+    private void rellenarDiagonalPrincipal(){
+        int numAleatorio;
+        for (int i = 0; i < cuadradoMagico.length; i++) {
+            if (i<cuadradoMagico.length-1) {
+                numAleatorio = (int)(Math.random()*pool.size());
+                cuadradoMagico[i][i] = pool.remove(numAleatorio);
+            } else {
+                cuadradoMagico[i][i] = ultimoDiagnoalPrincipal();
+            }
+        }    
+    }
+
+    private void rellenarDiagonalSecundaria(){
+        int numAleatorio;
+        for (int i = 0; i < cuadradoMagico.length; i++) {
+            if (cuadradoMagico[(cuadradoMagico.length-1)-i][i]==0) {
+                if (i<cuadradoMagico.length-1) {
+                    numAleatorio = (int)(Math.random()*pool.size());
+                    cuadradoMagico[(cuadradoMagico.length-1)-i][i] = pool.remove(numAleatorio);
+                } else {
+                    cuadradoMagico[(cuadradoMagico.length-1)-i][i] = ultimoDiagnoalSecundaria();
+                }
+            }
+
+        }
+    }
+
+    private void rellenarFilas(){
+        int numAleatorio;
+        for (int i = 0; i < cuadradoMagico.length-1; i++) {
+            for (int j = 0; j < cuadradoMagico.length; j++) {
+                if (cuadradoMagico[i][j]==0) {
+                    if (j<cuadradoMagico.length-1) {
+                    numAleatorio = (int)(Math.random()*pool.size());
+                    cuadradoMagico[i][j] = pool.remove(numAleatorio); 
+                    }else{
+                        cuadradoMagico[i][j]=ultimoFila(i);
+                    } 
+                }
+            }  
+
+            if(!comprobarFila(i)){
+                return;
+            }
+        }
+        for (int i = 0; i < cuadradoMagico.length; i++) {
+            if(i!=0&&i!=cuadradoMagico.length-1){
+                int numNecesario = ultimoColumnas(i);
+                if(numNecesario==-1){
+                    return;
+                }
+                cuadradoMagico[cuadradoMagico.length-1][i] = numNecesario;
+            }
+        }
     }
 
     private void mostrarCuadrado(long intentos){
@@ -106,21 +159,6 @@ public class CuadradoMagico {
             return false;
         }
     }
-
-    private int ultimoFila(int i){
-        int num = 0;
-        for (int j = 0; j < cuadradoMagico.length-1; j++) {
-            num += cuadradoMagico[i][j];
-        }
-        int index = pool.indexOf(constanteMagica-num);
-        if (index!=-1) {
-            pool.remove(index);
-            return constanteMagica-num;
-        }
-        return -1;
-    }
-
-    
 
     private boolean comprobarColumna(int j){
         int num = 0;
@@ -169,4 +207,58 @@ public class CuadradoMagico {
         }
         return true;
     }
+
+        private int ultimoFila(int i){
+        int num = 0;
+        for (int j = 0; j < cuadradoMagico.length-1; j++) {
+            num += cuadradoMagico[i][j];
+        }
+        int index = pool.indexOf(constanteMagica-num);
+        if (index!=-1) {
+            pool.remove(index);
+            return constanteMagica-num;
+        }
+        return -1;
+    }
+
+    private int ultimoColumnas(int f){
+        int num = 0;
+        for (int i = 0; i < cuadradoMagico.length; i++) {
+            num += cuadradoMagico[i][f];
+        }
+        int index = pool.indexOf(constanteMagica-num);
+        if (index!=-1){
+            pool.remove(index);
+            return constanteMagica-num;
+        }
+        return -1;
+    }
+
+        private int ultimoDiagnoalPrincipal(){
+        int num = 0;
+        for (int i = 0; i < cuadradoMagico.length-1; i++) {
+            num += cuadradoMagico[i][i];
+        }
+        int index = pool.indexOf(constanteMagica-num);
+        if (index!=-1) {
+            pool.remove(index);
+            return constanteMagica-num;
+        }
+        return -1;
+    }
+    
+            private int ultimoDiagnoalSecundaria(){
+        int num = 0;
+        for (int i = 0; i < cuadradoMagico.length-1; i++) {
+            num += cuadradoMagico[(cuadradoMagico.length-1)-i][i];
+        }
+        int index = pool.indexOf(constanteMagica-num);
+        if (index!=-1) {
+            pool.remove(index);
+            return constanteMagica-num;
+        }
+        return -1;
+    }
+    
+
 }
