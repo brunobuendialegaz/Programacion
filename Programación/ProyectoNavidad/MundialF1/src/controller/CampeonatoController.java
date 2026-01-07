@@ -34,10 +34,10 @@ public class CampeonatoController {
         Scanner s = new Scanner(System.in);
         String opcion = "";
         while (!opcion.toLowerCase().equals("no") && !opcion.toLowerCase().equals("si")){
-            System.out.print("¿Quieres ver la clasificación actual? (si/no)");
+            System.out.print("¿Quieres ver la clasificación actual? (si/no) ");
             opcion = s.nextLine();
             if (!opcion.toLowerCase().equals("no") && !opcion.toLowerCase().equals("si")) {
-                System.out.println("Opción no valida, por favor introduce si o no.");
+                System.out.println("Opción no valida, por favor introduce si o no. ");
             }
         }
 

@@ -55,7 +55,7 @@ public class Main {
             carreras.add(new Carrera(nombre,kms,coches));
         }
 
-        System.out.println("¿Como se llama el campeonato? ");
+        System.out.print("¿Como se llama el campeonato? ");
         String nombreCampeonato = s.nextLine();
 
         Campeonato campeonato = new Campeonato(carreras,nombreCampeonato);
