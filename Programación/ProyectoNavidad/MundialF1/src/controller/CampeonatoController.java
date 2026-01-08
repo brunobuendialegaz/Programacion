@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import model.Campeonato;
-
 import java.util.Scanner;
 
 @Data
@@ -26,7 +25,9 @@ public class CampeonatoController {
             }
 
         }
+        System.out.println("¡¡¡Resultado final!!");
         mostrarResultadoCampeonatoFinal();
+        System.out.println("\n¡¡¡Felicidades al campeon!!!");
 
     }
 
@@ -37,27 +38,16 @@ public class CampeonatoController {
             System.out.print("¿Quieres ver la clasificación actual? (si/no) ");
             opcion = s.nextLine();
             if (!opcion.toLowerCase().equals("no") && !opcion.toLowerCase().equals("si")) {
-                System.out.println("Opción no valida, por favor introduce si o no. ");
+                System.out.print("Opción no valida, por favor introduce si o no. ");
             }
         }
 
-        switch (opcion) {
+        switch (opcion.toLowerCase()) {
             case "no" -> {
                 System.out.println("Continuamos con la siguiente carrera...");
             }
             case "si" -> {
-                System.out.printf("""
-                                
-                                === CLASIFICACIÓN CAMPEONATO %S ===
-                                1.- %s [%d puntos]
-                                2.- %s [%d puntos]
-                                3.- %s [%d puntos]
-                                
-                                """, campeonato.getNombre(),
-                        campeonato.getCarreras().get(0).getParticipantes().get(0).getNombre(), campeonato.getCarreras().get(0).getParticipantes().get(0).getPuntos(),
-                        campeonato.getCarreras().get(1).getParticipantes().get(1).getNombre(), campeonato.getCarreras().get(1).getParticipantes().get(1).getPuntos(),
-                        campeonato.getCarreras().get(2).getParticipantes().get(2).getNombre(), campeonato.getCarreras().get(2).getParticipantes().get(2).getPuntos()
-                );
+                mostrarResultadoCampeonatoFinal();
             }
         }
     }
@@ -66,18 +56,19 @@ public class CampeonatoController {
         System.out.printf("""
                 
                 === CLASIFICACIÓN CAMPEONATO %S ===
-                1.- %s [%d puntos]
-                2.- %s [%d puntos]
-                3.- %s [%d puntos]
-                
-                Enhorabuena al CAMPEON %s!!!
+
                 """,
-                campeonato.getNombre(),
-                campeonato.getCarreras().get(0).getParticipantes().get(0).getNombre(),campeonato.getCarreras().get(0).getParticipantes().get(0).getPuntos(),
-                campeonato.getCarreras().get(1).getParticipantes().get(1).getNombre(),campeonato.getCarreras().get(1).getParticipantes().get(1).getPuntos(),
-                campeonato.getCarreras().get(2).getParticipantes().get(2).getNombre(),campeonato.getCarreras().get(2).getParticipantes().get(2).getPuntos(),
-                campeonato.getCarreras().get(0).getParticipantes().get(0).getNombre()
+                campeonato.getNombre()
                     );
+
+        for (int i = 0; i < campeonato.getCarreras().get(0).getParticipantes().size(); i++) {
+            System.out.printf("""
+                    %d.- %s [%d puntos]
+                    """,(i+1),
+                    campeonato.getCarreras().get(i).getParticipantes().get(i).getNombre(),
+                    campeonato.getCarreras().get(i).getParticipantes().get(i).getPuntos()
+            );
+        }
     }
 
 }

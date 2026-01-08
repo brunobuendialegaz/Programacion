@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -11,14 +13,13 @@ import lombok.NoArgsConstructor;
 public class Coche {
 
     private String nombre;
-    private String escuderia;
-    private int kms;
-    private int puntos;
+    private int kms, puntos, kmsTotales;
 
     public Coche (String nombre){
         this.nombre = nombre;
-        this.kms = 0;
-        this.puntos = 0;
+        kms = 0;
+        puntos = 0;
+        kmsTotales = 0;
     }
 
 }

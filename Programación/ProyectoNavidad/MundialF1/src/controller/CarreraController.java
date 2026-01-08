@@ -23,7 +23,7 @@ public class CarreraController {
             for (int i = 0; i < carrera.getParticipantes().size(); i++) {
                 darVuelta(i);
             }
-        }while (!hayGanador(carrera.getParticipantes()));
+        }while (!carreraFinalizada(carrera.getParticipantes()));
         ordenarClasificacionCarrera();
         sumarPuntos();
         mostrarResultadoCarrera();
@@ -33,48 +33,81 @@ public class CarreraController {
     private void mostrarResultadoCarrera(){
         System.out.printf("""
                 
-                === PODIO DE %s ===
-                1.- %s [+10 puntos]
-                2.- %s [+8 puntos]
-                3.- %s [+6 puntos]
-                
-                """, carrera.getNombre(),
-                carrera.getParticipantes().get(0).getNombre(),
-                carrera.getParticipantes().get(1).getNombre(),
-                carrera.getParticipantes().get(2).getNombre()
+                === Podio de %S ===
+
+                """,
+                carrera.getNombre()
         );
 
+        int puntos = 10;
+        for (int i = 0; i < carrera.getParticipantes().size() && i<3; i++) {
+                System.out.printf("""
+                    %d.- %s [%d puntos]
+                    """,(i+1),
+                        carrera.getParticipantes().get(i).getNombre(),
+                        puntos
+
+                );
+                puntos -=2;
+        }
     }
 
 
     private void darVuelta(int i){
         int avance = (int)(Math.random()*31)+20;
         carrera.getParticipantes().get(i).setKms(carrera.getParticipantes().get(i).getKms()+avance);
+        carrera.getParticipantes().get(i).setKmsTotales(carrera.getParticipantes().get(i).getKmsTotales()+avance);
     }
 
-    private boolean hayGanador(ArrayList<Coche> participantes){
+    // con este metodo me aseguro de que nadie este empatado, en caso de que haya un empate, damos otra vuelta.
+    private boolean carreraFinalizada(ArrayList<Coche> participantes) {
+
+        boolean metaCruzada = false;
         for (int i = 0; i < participantes.size(); i++) {
-            if (participantes.get(i).getKms()>= carrera.getKms()){
-                return true;
+            if (participantes.get(i).getKms() >= carrera.getKms()) {
+                metaCruzada = true;
+                break;
             }
         }
-        return false;
+
+        if (!metaCruzada) {
+            return false;
+        }
+
+        for (int i = 0; i < participantes.size(); i++) {
+            for (int j = i + 1; j < participantes.size(); j++) {
+
+                if (participantes.get(i).getKms() == participantes.get(j).getKms()) {
+                    return false;
+                }
+            }
+        }
+
+
+        return true;
     }
 
     private void ordenarClasificacionCarrera (){
         carrera.getParticipantes().sort((c1, c2) -> c2.getKms() - c1.getKms());
     }
 
-    private void ordenarClasificacionPuntos (){
-        carrera.getParticipantes().sort((c1, c2) -> c2.getPuntos() - c1.getPuntos());
+    // Con este orden de clasificación, lo que hacemos es que si empatan 2 posiciones a puntos,
+    // se pone primero el que tiene mas kms totales en el campeonato
+    private void ordenarClasificacionPuntos() {
+        carrera.getParticipantes().sort((c1, c2) -> {
+            int comparacionPuntos = c2.getPuntos() - c1.getPuntos();
+            if (comparacionPuntos != 0) {
+                return comparacionPuntos;
+            }
+            return c2.getKmsTotales() - c1.getKmsTotales();
+        });
     }
 
     private void sumarPuntos(){
         int puntos = 10;
         for (int i = 0; i < carrera.getParticipantes().size(); i++) {
             if (puntos>0){
-                int puntosSumar = carrera.getParticipantes().get(i).getPuntos() + puntos;
-                carrera.getParticipantes().get(i).setPuntos(puntosSumar);
+                carrera.getParticipantes().get(i).setPuntos(carrera.getParticipantes().get(i).getPuntos()+puntos);
                 puntos -= 2;
             }
 
