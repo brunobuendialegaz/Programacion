@@ -1,3 +1,4 @@
+package ej1;
 public class Gato extends Animal {
 
         public Gato(){

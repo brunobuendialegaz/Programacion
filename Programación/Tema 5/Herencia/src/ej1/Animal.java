@@ -1,3 +1,4 @@
+package ej1;
 public abstract class Animal {
 
     private String nombre;
