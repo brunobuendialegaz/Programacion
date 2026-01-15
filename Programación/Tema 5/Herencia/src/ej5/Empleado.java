@@ -1,9 +1,9 @@
 package ej5;
 
-public class Empleado {
+public abstract class Empleado {
 
     private String nombre;
-    private int salarioBase;
+    private double salarioBase;
 
     public String getNombre() {
         return nombre;
@@ -13,7 +13,7 @@ public class Empleado {
         this.nombre = nombre;
     }
 
-    public int getSalarioBase() {
+    public double getSalarioBase() {
         return salarioBase;
     }
 
@@ -23,10 +23,11 @@ public class Empleado {
 
     public Empleado(){}
 
-    public Empleado(String nombre, int salarioBase){
+    public Empleado(String nombre, double salarioBase){
         this.nombre = nombre;
         this.salarioBase = salarioBase;
     }
 
+    public abstract void mostrarDatos();
 
 }

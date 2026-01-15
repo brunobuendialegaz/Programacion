@@ -3,6 +3,8 @@ import ej2.Vehiculo;
 import ej3.Estudiante;
 import ej4.Circulo;
 import ej4.Cuadrado;
+import ej5.Desarrollador;
+import ej5.Gerente;
 
 public class Main {
     
@@ -47,9 +49,15 @@ public class Main {
         circulo.calcularArea();*/
 
 
-        //ej 5
+        /*ej 5
 
-        
+        Gerente gerente = new Gerente("Bruno", 40000, 15000);
+
+        gerente.mostrarDatos();
+
+        Desarrollador desarrollador = new Desarrollador("Oscar", 30000, "Java");
+
+        desarrollador.mostrarDatos();*/
 
 
     }
