@@ -14,7 +14,9 @@ public class Agenda {
         this.contactos = contactos;
     }
 
-    public Agenda(){}
+    public Agenda(){
+        contactos = new HashMap<>();
+    }
 
     public Agenda(HashMap<String, String> contacto){
         this.contactos = contacto;
@@ -29,7 +31,10 @@ public class Agenda {
                 contactos.put(nombre, telefono); //
                 System.out.println("Contacto '" + nombre + "' actualizado con el nuevo teléfono.");
             }
-        }
+        } else {
+        contactos.put(nombre, telefono);
+        System.out.println("Contacto '" + nombre + "' añadido con éxito.");
+    }
     }
 
     public String buscarContacto(String nombre){
@@ -60,8 +65,8 @@ public class Agenda {
         }
     }
 
-    public void listarContactosMalo(){
-        contactos.toString();
+    public String listarContactosMalo(){
+        return contactos.toString();
     }
 
     public int contarContactos(){
