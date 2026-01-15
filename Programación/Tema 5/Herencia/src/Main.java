@@ -1,6 +1,8 @@
 import ej2.Coche;
 import ej2.Vehiculo;
 import ej3.Estudiante;
+import ej4.Circulo;
+import ej4.Cuadrado;
 
 public class Main {
     
@@ -27,12 +29,27 @@ public class Main {
 
         coche.mostrarDatos();*/
 
-        //ej3
+        /*ej3
 
         Estudiante estudiante = new Estudiante("Bruno", 30, "Primero de DAW");
 
         estudiante.presentarse();
-        estudiante.estudiar();
+        estudiante.estudiar();*/
+
+        /*ej4
+
+        Cuadrado cuadrado = new Cuadrado(5);
+
+        cuadrado.calcularArea();
+
+        Circulo circulo = new Circulo(5);
+
+        circulo.calcularArea();*/
+
+
+        //ej 5
+
+        
 
 
     }
