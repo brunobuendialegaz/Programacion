@@ -1,6 +1,7 @@
 import ej1.Agenda;
 import ej2.Stock;
 import ej3.Diccionario;
+import ej4.Notas;
 
 public class Main {
 
@@ -93,6 +94,40 @@ public class Main {
         diccionario.listarTraducciones();
 
         diccionario.traducirFrase("El gato pequeño come y duerme siesta");*/
+
+        // ej4
+
+        /*Notas notas = new Notas();
+
+        notas.agregarEstudiante("Bruno");
+        notas.agregarEstudiante("Dioni");
+        notas.agregarEstudiante("Dani");
+
+        notas.agregarCalificacion("Bruno", 9.5);
+        notas.agregarCalificacion("Bruno", 7);
+        notas.agregarCalificacion("Bruno", 5.5);
+
+        notas.agregarCalificacion("Dioni", 9.5);
+        notas.agregarCalificacion("Dioni", 10);
+        notas.agregarCalificacion("Dioni", 5.5);
+
+        notas.agregarCalificacion("Dani", 9.5);
+        notas.agregarCalificacion("Dani", 7);
+        notas.agregarCalificacion("Dani", 0);
+
+        notas.mostrarCalificaciones("Bruno");
+
+        notas.mostrarCalificaciones("Dioni");
+
+        notas.mostrarCalificaciones("Dani");
+
+        System.out.println("La nota media de la clase es: " + notas.promedioGeneral());
+
+        System.out.println("Mejor estudiante: " + notas.mejorEstudiante());
+
+        notas.listarEstudiantesAprobados(5);*/
+
+
 
 
 
