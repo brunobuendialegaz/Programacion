@@ -2,8 +2,12 @@ package ejercicios;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.function.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import model.Producto;
 
@@ -100,6 +104,24 @@ public class Ejercicios {
         Arrays.stream(numeros).boxed()
         .forEach(n -> System.out.println("¿Cumple " + n + " con los criterios? " + mayor50.and(div3).and(par).test(n))); // importante el test para los Pedicates o BiPredicates
         //.and() , .or() y .negate(), importantes. En este caso solo uso .and()
+    }
 
+    public void ej9(){
+        ArrayList<Integer> lista1 = new ArrayList<>();
+        ArrayList<Integer> lista2 = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            lista1.add((int)(Math.random()*21));
+            lista2.add((int)(Math.random()*21));
+        }
+        System.out.println(lista1.stream().sorted().map(Object::toString).collect(Collectors.joining(", ")));
+        System.out.println(lista2.stream().sorted().map(Object::toString).collect(Collectors.joining(", ")));
+
+        BiFunction<ArrayList<Integer>, ArrayList<Integer>, ArrayList<Integer>> fusionarLista = (l1, l2) -> Stream.concat(l1.stream(), l2.stream())
+        .distinct()
+        .sorted()
+        .collect(Collectors.toCollection(ArrayList::new));
+  
+        System.out.println(fusionarLista.apply(lista1, lista2).stream().map(Object::toString).collect(Collectors.joining(", ")));
+        
     }
 }
