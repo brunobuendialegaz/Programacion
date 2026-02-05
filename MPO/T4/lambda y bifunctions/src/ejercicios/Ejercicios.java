@@ -91,6 +91,15 @@ public class Ejercicios {
     }
 
     public void ej8(){
-        
+        int[] numeros = {5,99,125,15,96};
+
+        Predicate<Integer> mayor50 = (num) -> num > 50; 
+        Predicate<Integer> par = (num) -> num % 2 == 0;
+        Predicate<Integer> div3 = (num) -> num % 3 == 0;
+
+        Arrays.stream(numeros).boxed()
+        .forEach(n -> System.out.println("¿Cumple " + n + " con los criterios? " + mayor50.and(div3).and(par).test(n))); // importante el test para los Pedicates o BiPredicates
+        //.and() , .or() y .negate(), importantes. En este caso solo uso .and()
+
     }
 }
