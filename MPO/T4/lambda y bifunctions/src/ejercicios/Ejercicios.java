@@ -9,6 +9,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import model.Alumno;
 import model.Producto;
 
 public class Ejercicios {
@@ -55,7 +56,7 @@ public class Ejercicios {
         paresPalabras.put("avion","jauria");
         paresPalabras.put("apartamento","partidos");
         paresPalabras.put("madre","padre");
-
+        
         BiPredicate<String, String> comprobarLongitud = (str1, str2) -> str1.length()==str2.length();
         paresPalabras.forEach((palabra1, palabra2) -> System.out.println("¿Tienen " + palabra1 + " y " + palabra2 + " la misma longitud? " + comprobarLongitud.test(palabra1, palabra2)));
     }
@@ -122,6 +123,48 @@ public class Ejercicios {
         .collect(Collectors.toCollection(ArrayList::new));
   
         System.out.println(fusionarLista.apply(lista1, lista2).stream().map(Object::toString).collect(Collectors.joining(", ")));
+        
+    }
+
+    public void ej10(){
+        ArrayList<Alumno> alumnos = new ArrayList();
+        alumnos.add(new Alumno("Bruno", 9, 6));
+        alumnos.add(new Alumno("Dioni", 10, 10));
+        alumnos.add(new Alumno("Dano", 6, 8));
+        alumnos.add(new Alumno("Yago", 5, 9));
+        alumnos.add(new Alumno("Izan", 3, 2));
+        alumnos.add(new Alumno("Maria", 3, 6));
+        alumnos.add(new Alumno("Izan", 3, 9));
+        alumnos.add(new Alumno("Izan", 3, 1));
+
+        BiFunction<Double, Double, Double> notaFinal = (n1,n2) -> (n1*0.6) + (n2*0.4);
+        BiPredicate<Double, Double> aprobado = (n1, n2) -> notaFinal.apply(n1, n2) >= 5.0;
+
+        Function<Double, String> notaLetra = nf -> {
+            if (nf>=9) return "A";
+            if (nf>=7) return "B";
+            if (nf>=6) return "C";
+            if (nf>=5) return "D";
+            return "F";    
+        };
+
+        BiConsumer<Alumno, Double> imprimirInforme = (al, nota) -> {
+            String aproSus = aprobado.test(al.getNotaTeoria(), al.getNotaPractica()) ? "aprobado" : "suspenso";
+            System.out.println("El alumno " + al.getNombre() + " ha " + aproSus + ", su nota es " + nota + " equivale a " + notaLetra.apply(nota));
+        };
+
+        Predicate<Alumno> filtroAprobado = al -> aprobado.test(al.getNotaTeoria(), al.getNotaPractica());
+
+        System.out.println("----- Informe general de la Clase -----");
+
+        alumnos.forEach(al -> {
+            imprimirInforme.accept(al, notaFinal.apply(al.getNotaTeoria(), al.getNotaPractica()));
+        });
+
+        System.out.println("Ha aprobado un total de " + alumnos.stream().filter(filtroAprobado).count());
+
+        
+
         
     }
 }
