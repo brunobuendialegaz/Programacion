@@ -8,7 +8,9 @@ public class Main {
         /*e.ej1();
         e.ej2();
         e.ej3();
-        e.ej4();*/
+        e.ej4();
         e.ej5();
+        e.ej6();*/
+        e.ej7();
     }
 }

@@ -1,8 +1,11 @@
 package ejercicios;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.function.*;
+
+import model.Producto;
 
 public class Ejercicios {
 
@@ -61,5 +64,33 @@ public class Ejercicios {
         estudiantes.put("Nathan", 19);
         BiConsumer<String, Integer> mostrarDatos = (nombre, edad) -> System.out.println("Nombre: [" + nombre + "], Edad: [" + edad + "]");
         estudiantes.forEach(mostrarDatos::accept);
+    }
+
+    public void ej6(){
+        int[] numeros = {1,3,8,16,34};
+        Function<Integer, Integer> suma10 = (num) -> num + 10;
+        Function<Integer, Integer> duplicar = (num) -> num * 2;
+        Function<Integer, String> darSolucion = (num) -> "Tras operar el resultado es " + num;
+        Arrays.stream(numeros).boxed() // copia del array, pasamos a Integer
+        .map(suma10.andThen(duplicar).andThen(darSolucion)) // en el map hacemos las operaciones
+        .forEach(System.out::println); // le decimos que itere la lista y nos imprima el return del map (En este caso el String del mostrardatos)
+    }
+
+    public void ej7(){
+        ArrayList<Producto> productos = new ArrayList<>();
+        productos.add(new Producto("raton", 19.99));
+        productos.add(new Producto("grafica", 729.99));
+        productos.add(new Producto("teclado", 29.99));
+        productos.add(new Producto("monitor", 299.99));
+        productos.add(new Producto("procesador", 599.99));
+
+        BiFunction<Producto, Producto, Producto> mayorPrecio = (p1, p2) -> p1.getPrecio() > p2.getPrecio() ? p1 : p2;
+
+        productos.stream().reduce((p1, p2) -> mayorPrecio.apply(p1, p2)) // pilla la lista completa y deja solo 1, con el criterio que tu marques en un BinaryOperator.
+        .ifPresent(ganador -> System.out.println("El producto con mayor precio es " + ganador.getNombre() + " y su precio es " + ganador.getPrecio() + "€."));
+    }
+
+    public void ej8(){
+        
     }
 }
