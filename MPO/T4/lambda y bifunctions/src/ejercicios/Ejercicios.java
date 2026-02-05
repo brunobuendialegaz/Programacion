@@ -132,10 +132,10 @@ public class Ejercicios {
         alumnos.add(new Alumno("Dioni", 10, 10));
         alumnos.add(new Alumno("Dano", 6, 8));
         alumnos.add(new Alumno("Yago", 5, 9));
-        alumnos.add(new Alumno("Izan", 3, 2));
+        alumnos.add(new Alumno("Izan", 5, 2));
         alumnos.add(new Alumno("Maria", 3, 6));
-        alumnos.add(new Alumno("Izan", 3, 9));
-        alumnos.add(new Alumno("Izan", 3, 1));
+        alumnos.add(new Alumno("Adri", 8, 9));
+        alumnos.add(new Alumno("Dani", 3, 8));
 
         BiFunction<Double, Double, Double> notaFinal = (n1,n2) -> (n1*0.6) + (n2*0.4);
         BiPredicate<Double, Double> aprobado = (n1, n2) -> notaFinal.apply(n1, n2) >= 5.0;
