@@ -14,6 +14,7 @@ class CalculadoraTest {
     @Test
     void pruebaResta() {
         Calculadora calc = new Calculadora();
-        assertEquals(10, calc.Restar(20, 10));
+        assertEquals(10, calc.Restar(20, 10), "La resta debería ser 10");
     }
+
 }

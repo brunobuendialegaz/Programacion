@@ -20,6 +20,7 @@ public class Main {
         alumnos.add(new Alumno("Dano",26,9.2));
         e.ej6(alumnos);
         e.ej1();*/
+        e.ej7();
 
 
 

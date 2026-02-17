@@ -3,7 +3,11 @@ package ejercicios;
 import model.Alumno;
 
 import java.io.*;
+import java.nio.file.attribute.FileTime;
+import java.time.Instant;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Ejercicios {
@@ -122,6 +126,22 @@ public class Ejercicios {
             }
         } catch (IOException e) {
             System.out.println("Error no controlado: " + e);;
+        }
+    }
+
+    public void ej7(){
+        System.out.print("Indica la ruta para mostrar datos: ");
+        String ruta = s.nextLine();
+
+        leerFichero(ruta, "\t");
+
+    }
+
+    private void  leerFichero(String path, String tabulacion){
+        File file = new File(path);
+        System.out.printf("%s[%s] %s (%d bytes) - Última modificación: %s%n",tabulacion,file.isDirectory()?"CARPETA":"ARCHIVO",file.getName(),file.length(), Instant.ofEpochMilli(file.lastModified())); // El Instant.ofEpochMilli es para traducir un timestamp de secs a formato fecha completa
+        if (file.isDirectory()) {
+            Arrays.stream(Objects.requireNonNull(file.listFiles())).forEach((item) -> leerFichero(item.getPath(), tabulacion + "\t")); // el Objects.requireNonNull me sirve para hacer control de errores not null
         }
     }
 }
