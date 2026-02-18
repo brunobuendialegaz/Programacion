@@ -3,12 +3,9 @@ package ejercicios;
 import model.Alumno;
 
 import java.io.*;
-import java.nio.file.attribute.FileTime;
 import java.time.Instant;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Ejercicios {
     // BufferedReader br = new BufferedReader(new FileReader(ruta)))
@@ -135,6 +132,37 @@ public class Ejercicios {
 
         leerFichero(ruta, "\t");
 
+    }
+
+    public void ej8(){
+        Map<String, Integer> palabrasRepetidas = new LinkedHashMap<>();
+        try (BufferedReader lector = new BufferedReader(new FileReader("C:\\Users\\bruno\\Documents\\GitHub\\Programacion\\Programación\\Tema 6\\EjerciciosFicheros\\src\\main\\java\\ejercicios\\articulo.txt"));){
+
+            String texto = lector.readLine();
+
+            String[] palabras = texto.toLowerCase().split("[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?\\s]+");
+
+            for (String palabra : palabras) {
+                palabrasRepetidas.put(palabra, palabrasRepetidas.getOrDefault(palabra, 0) + 1);
+            }
+
+            System.out.println("El texto tiene " + palabras.length + " palabras.");
+            System.out.println("Las 5 palabras mas frecuentes son:");
+
+            AtomicInteger contador = new AtomicInteger();
+            palabrasRepetidas.entrySet().stream()
+                    .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                    .limit(5)
+                    .forEach(entrada -> {
+                        contador.getAndIncrement();
+                        System.out.println(contador + ": " + entrada.getKey() + ": " + entrada.getValue());
+                    });
+
+        } catch (FileNotFoundException e){
+            System.out.println("Archivo no encontrado.");
+        } catch (IOException e) {
+            System.out.println("Error no controlado");
+        }
     }
 
     private void  leerFichero(String path, String tabulacion){
