@@ -140,7 +140,7 @@ public class Ejercicios {
 
             String texto = lector.readLine();
 
-            String[] palabras = texto.toLowerCase().split("[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?\\s]+");
+            String[] palabras = texto.toLowerCase().split("\\P{L}+");
 
             for (String palabra : palabras) {
                 palabrasRepetidas.put(palabra, palabrasRepetidas.getOrDefault(palabra, 0) + 1);
@@ -163,6 +163,7 @@ public class Ejercicios {
         } catch (IOException e) {
             System.out.println("Error no controlado");
         }
+
     }
 
     private void  leerFichero(String path, String tabulacion){
