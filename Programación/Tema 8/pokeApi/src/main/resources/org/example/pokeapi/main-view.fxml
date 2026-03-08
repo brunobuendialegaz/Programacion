@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pokeapi.controller.pokeApiController">
+   <children>
+      <Pane layoutX="367.0" layoutY="83.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="imagenPoke" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <Pane layoutX="14.0" layoutY="13.0" prefHeight="305.0" prefWidth="317.0">
+         <children>
+            <Text layoutX="68.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+            <Text layoutX="68.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Altura" />
+            <Text layoutX="68.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Peso" />
+            <Text fx:id="nombrePoke" layoutX="216.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="alturaPoke" layoutX="216.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="pesoPoke" layoutX="216.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text layoutX="68.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Defensa" />
+            <Text layoutX="68.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ataque" />
+            <Text layoutX="68.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HP" />
+            <Text layoutX="68.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ataque Especial" />
+            <Text layoutX="68.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Defensa Especial" />
+            <Text layoutX="68.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Velocidad" />
+            <Text fx:id="valorDef" layoutX="216.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="valorATK" layoutX="216.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="valorHP" layoutX="216.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="valorATKES" layoutX="216.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="valorDEFES" layoutX="216.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text fx:id="valorVEL" layoutX="216.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="173.0" layoutY="323.0" prefHeight="57.0" prefWidth="288.0">
+         <children>
+            <Button fx:id="buscarBoton" layoutX="118.0" layoutY="31.0" mnemonicParsing="false" text="Buscar" />
+            <TextField fx:id="buscarTexto" layoutX="70.0" layoutY="2.0" promptText="Pikachu..." />
+         </children>
+      </Pane>
+   </children>
+</Pane>
