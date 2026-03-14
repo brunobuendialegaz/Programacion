@@ -1,0 +1,46 @@
+package model;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Data
+public class Usuario {
+    private long id;
+    private String name;
+    private String username;
+    private String email;
+    private Address address;
+    private String phone;
+    private String website;
+    private Company company;
+
+
+// Address.java
+
+@Data
+public static class Address {
+    private String street;
+    private String suite;
+    private String city;
+    private String zipcode;
+    private Geo geo;
+}
+
+// Geo.java
+
+@Data
+public static class Geo {
+    private String lat;
+    private String lng;
+}
+
+// Company.java
+
+@Data
+public static class Company {
+    private String name;
+    private String catchPhrase;
+    private String bs;
+}
+}
