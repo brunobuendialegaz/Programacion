@@ -1,127 +1,363 @@
 /* =========================================================================
-   ESTILOS GENERALES PARA LA ESCENA DE TERROR (Stephen King / IT)
-   ========================================================================= */
+
+ESTILOS GENERALES PARA LA ESCENA DE TERROR (Stephen King / IT)
+
+========================================================================= */
+
+
 
 /* 1. EL FONDO PRINCIPAL */
+
 .root {
-    -fx-background-image: url(../images/background.jpg);
-    -fx-background-size: cover;
-    -fx-background-position: center;
-    -fx-background-repeat: no-repeat;
-    -fx-background-color: #050202;
+
+-fx-background-image: url(../images/background.jpg);
+
+-fx-background-size: cover;
+
+-fx-background-position: center;
+
+-fx-background-repeat: no-repeat;
+
+-fx-background-color: #050202;
+
 }
 
+
+
 /* 2. LOS BOTONES SUPERIORES (Máxima legibilidad) */
+
 .button {
-    /* Le damos un fondo negro semitransparente para separarlo de Pennywise */
+
+/* Le damos un fondo negro semitransparente para separarlo de Pennywise */
+
+-fx-background-color: rgba(10, 5, 5, 0.85);
+
+-fx-border-color: #8b0000; /* Borde sangre oscura */
+
+-fx-border-width: 2;
+
+-fx-border-radius: 4;
+
+-fx-background-radius: 4;
+
+
+
+/* Texto: Rojo mucho más brillante y fuente más grande */
+
+-fx-text-fill: #ff4d4d;
+
+-fx-font-weight: bold;
+
+-fx-font-size: 14px;
+
+-fx-padding: 8 15;
+
+-fx-cursor: hand;
+
+
+
+/* Sombra negra densa para que el botón "flote" sobre el fondo */
+
+-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.9), 10, 0.0, 0, 2);
+
+}
+
+
+
+/* Susto al pasar el ratón */
+
+.button:hover {
+
+-fx-background-color: rgba(139, 0, 0, 0.4); /* El fondo se tiñe de sangre */
+
+-fx-border-color: #ff1a1a;
+
+-fx-text-fill: #ffffff; /* El texto se vuelve blanco para destacar a lo bestia */
+
+-fx-effect: dropshadow(three-pass-box, rgba(255,26,26,0.6), 15, 0.0, 0, 0);
+
+}
+
+
+
+.button:armed {
+
+-fx-background-color: #330000;
+
+-fx-text-fill: #aaaaaa;
+
+}
+
+
+
+/* 3. PANELES Y TEXTOS CENTRALES (Si usas el FXML que te pasé con la tarjeta) */
+
+.panel-oscuro {
+
+-fx-background-color: rgba(5, 5, 5, 0.88); /* Muy oscuro para leer bien */
+
+-fx-background-radius: 8;
+
+-fx-border-color: #660000;
+
+-fx-border-width: 2;
+
+-fx-border-radius: 8;
+
+-fx-padding: 30;
+
+-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.9), 20, 0, 0, 0);
+
+}
+
+
+
+.texto-etiqueta {
+
+-fx-fill: #ff4d4d; /* Rojo brillante para los títulos (Título, Autor...) */
+
+-fx-font-weight: bold;
+
+-fx-font-size: 16px;
+
+}
+
+
+
+.texto-valor {
+
+-fx-fill: #f2f2f2; /* Blanco roto para los datos del libro */
+
+-fx-font-size: 16px;
+
+}
+
+
+
+/* 4. LA LISTA DE LIBROS (El pozo) */
+
+.list-view {
+
+-fx-background-color: rgba(10, 10, 10, 0.9); /* Casi opaco para que se lean los libros */
+
+-fx-border-color: #400000; /* Borde rojizo muy oscuro */
+
+-fx-border-width: 2;
+
+-fx-padding: 0;
+
+}
+
+
+
+/* 5. LAS FILAS DE LA LISTA */
+
+.list-cell {
+
+-fx-background-color: transparent;
+
+-fx-text-fill: #d9d9d9; /* Gris muy claro, casi blanco */
+
+-fx-font-size: 15px; /* Letra un punto más grande */
+
+-fx-padding: 15 20;
+
+-fx-border-color: #1a1a1a;
+
+-fx-border-width: 0 0 1 0;
+
+}
+
+
+
+.list-cell:hover {
+
+-fx-background-color: rgba(60, 10, 10, 0.7); /* Hover rojo oscuro */
+
+-fx-text-fill: #ffffff;
+
+}
+
+
+
+.list-cell:selected {
+
+-fx-background-color: #8b0000; /* Rojo sangre pura al seleccionar */
+
+-fx-text-fill: #ffffff;
+
+-fx-font-weight: bold; /* Se vuelve negrita al seleccionar */
+
+-fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.9), 15, 0.0, 0, 0);
+
+}
+
+
+
+/* 6. SCROLLBAR INVISIBLE */
+
+.list-view .scroll-bar:vertical {
+
+-fx-background-color: transparent;
+
+}
+
+.list-view .scroll-bar:vertical .thumb {
+
+-fx-background-color: #4a0000; /* Scrollbar color sangre */
+
+-fx-background-radius: 0;
+
+}
+
+
+
+/* =========================================================================
+
+7. ESTILOS AÑADIDOS PARA LA VISTA DEL LIBRO SUELTO
+
+========================================================================= */
+
+
+
+/* Texto blanco y grueso con un borde/sombra negra para que sea 100% legible
+
+incluso si pisa directamente una zona clara de la imagen */
+
+.texto-destacado {
+
+-fx-fill: #ffffff;
+
+-fx-font-size: 18px;
+
+-fx-font-weight: bold;
+
+-fx-effect: dropshadow(three-pass-box, #000000, 8, 0.8, 0, 0);
+
+}
+
+
+
+/* Panel para la barra inferior, similar al oscuro pero adaptado para abajo */
+
+.panel-inferior {
+
+-fx-background-color: rgba(10, 5, 5, 0.9);
+
+-fx-border-color: #660000;
+
+-fx-border-width: 2 0 0 0; /* Solo línea de sangre por arriba */
+
+-fx-padding: 10;
+
+}
+
+/* =========================================================================
+   8. ESTILOS AÑADIDOS PARA EL BUSCADOR Y LA TABLA (TextField y TableView)
+   ========================================================================= */
+
+/* --- TEXTFIELD (El buscador) --- */
+.text-field {
     -fx-background-color: rgba(10, 5, 5, 0.85);
-    -fx-border-color: #8b0000; /* Borde sangre oscura */
+    -fx-border-color: #8b0000;
     -fx-border-width: 2;
     -fx-border-radius: 4;
     -fx-background-radius: 4;
 
-    /* Texto: Rojo mucho más brillante y fuente más grande */
-    -fx-text-fill: #ff4d4d;
-    -fx-font-weight: bold;
+    -fx-text-fill: #f2f2f2;
     -fx-font-size: 14px;
-    -fx-padding: 8 15;
-    -fx-cursor: hand;
-
-    /* Sombra negra densa para que el botón "flote" sobre el fondo */
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.9), 10, 0.0, 0, 2);
+    -fx-padding: 6 12;
 }
 
-/* Susto al pasar el ratón */
-.button:hover {
-    -fx-background-color: rgba(139, 0, 0, 0.4); /* El fondo se tiñe de sangre */
+/* El texto de "Buscar libro..." */
+.text-field {
+    -fx-prompt-text-fill: #660000;
+}
+
+/* Efecto al hacer clic en el buscador (Glow rojo) */
+.text-field:focused {
     -fx-border-color: #ff1a1a;
-    -fx-text-fill: #ffffff; /* El texto se vuelve blanco para destacar a lo bestia */
-    -fx-effect: dropshadow(three-pass-box, rgba(255,26,26,0.6), 15, 0.0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(255,26,26,0.4), 10, 0.0, 0, 0);
 }
 
-.button:armed {
-    -fx-background-color: #330000;
-    -fx-text-fill: #aaaaaa;
-}
-
-/* 3. PANELES Y TEXTOS CENTRALES (Si usas el FXML que te pasé con la tarjeta) */
-.panel-oscuro {
-    -fx-background-color: rgba(5, 5, 5, 0.88); /* Muy oscuro para leer bien */
-    -fx-background-radius: 8;
-    -fx-border-color: #660000;
-    -fx-border-width: 2;
-    -fx-border-radius: 8;
-    -fx-padding: 30;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.9), 20, 0, 0, 0);
-}
-
-.texto-etiqueta {
-    -fx-fill: #ff4d4d; /* Rojo brillante para los títulos (Título, Autor...) */
-    -fx-font-weight: bold;
-    -fx-font-size: 16px;
-}
-
-.texto-valor {
-    -fx-fill: #f2f2f2; /* Blanco roto para los datos del libro */
-    -fx-font-size: 16px;
-}
-
-/* 4. LA LISTA DE LIBROS (El pozo) */
-.list-view {
-    -fx-background-color: rgba(10, 10, 10, 0.9); /* Casi opaco para que se lean los libros */
-    -fx-border-color: #400000; /* Borde rojizo muy oscuro */
+/* --- TABLEVIEW (La tabla principal) --- */
+.table-view {
+    -fx-background-color: rgba(10, 10, 10, 0.9);
+    -fx-border-color: #400000;
     -fx-border-width: 2;
     -fx-padding: 0;
 }
 
-/* 5. LAS FILAS DE LA LISTA */
-.list-cell {
+/* Eliminar el fondo gris por defecto cuando la tabla no tiene suficientes filas */
+.table-view .empty {
     -fx-background-color: transparent;
-    -fx-text-fill: #d9d9d9; /* Gris muy claro, casi blanco */
-    -fx-font-size: 15px; /* Letra un punto más grande */
-    -fx-padding: 15 20;
+}
+
+/* --- CABECERAS DE LA TABLA --- */
+.table-view .column-header-background {
+    -fx-background-color: rgba(5, 5, 5, 0.95);
+    -fx-border-color: #8b0000;
+    -fx-border-width: 0 0 2 0; /* Línea de sangre separando títulos de datos */
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-size: 35px; /* Altura de la cabecera */
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #ff4d4d; /* Rojo brillante, igual que los títulos */
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+/* Quitar líneas de separación blancas por defecto entre cabeceras */
+.table-view .column-header .filler {
+    -fx-background-color: transparent;
+}
+
+/* --- FILAS Y CELDAS --- */
+.table-row-cell {
+    -fx-background-color: transparent;
     -fx-border-color: #1a1a1a;
     -fx-border-width: 0 0 1 0;
 }
 
-.list-cell:hover {
-    -fx-background-color: rgba(60, 10, 10, 0.7); /* Hover rojo oscuro */
+.table-row-cell .table-cell {
+    -fx-text-fill: #d9d9d9;
+    -fx-font-size: 15px;
+    -fx-padding: 8 15;
+    -fx-alignment: center-left;
+}
+
+/* Hover: Fila sobre la que pasa el ratón */
+.table-row-cell:hover {
+    -fx-background-color: rgba(60, 10, 10, 0.7);
+}
+
+.table-row-cell:hover .table-cell {
     -fx-text-fill: #ffffff;
 }
 
-.list-cell:selected {
-    -fx-background-color: #8b0000; /* Rojo sangre pura al seleccionar */
-    -fx-text-fill: #ffffff;
-    -fx-font-weight: bold; /* Se vuelve negrita al seleccionar */
-    -fx-effect: innershadow(three-pass-box, rgba(0,0,0,0.9), 15, 0.0, 0, 0);
+/* Fila seleccionada */
+.table-row-cell:selected {
+    -fx-background-color: #8b0000;
 }
 
-/* 6. SCROLLBAR INVISIBLE */
-.list-view .scroll-bar:vertical {
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+/* --- SCROLLBARS DE LA TABLA --- */
+.table-view .scroll-bar:vertical,
+.table-view .scroll-bar:horizontal {
     -fx-background-color: transparent;
 }
-.list-view .scroll-bar:vertical .thumb {
-    -fx-background-color: #4a0000; /* Scrollbar color sangre */
+
+.table-view .scroll-bar:vertical .thumb,
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: #4a0000;
     -fx-background-radius: 0;
-}
-
-/* =========================================================================
-   7. ESTILOS AÑADIDOS PARA LA VISTA DEL LIBRO SUELTO
-   ========================================================================= */
-
-/* Texto blanco y grueso con un borde/sombra negra para que sea 100% legible
-   incluso si pisa directamente una zona clara de la imagen */
-.texto-destacado {
-    -fx-fill: #ffffff;
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
-    -fx-effect: dropshadow(three-pass-box, #000000, 8, 0.8, 0, 0);
-}
-
-/* Panel para la barra inferior, similar al oscuro pero adaptado para abajo */
-.panel-inferior {
-    -fx-background-color: rgba(10, 5, 5, 0.9);
-    -fx-border-color: #660000;
-    -fx-border-width: 2 0 0 0; /* Solo línea de sangre por arriba */
-    -fx-padding: 10;
 }

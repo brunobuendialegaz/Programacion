@@ -12,6 +12,7 @@ module org.example.bibliotecaterror {
     exports org.example.bibliotecaterror;
 
     opens org.example.bibliotecaterror.controller to javafx.fxml;
-    opens org.example.bibliotecaterror.model to com.google.gson;
+    opens org.example.bibliotecaterror.model to com.google.gson, javafx.base;
+
 
 }

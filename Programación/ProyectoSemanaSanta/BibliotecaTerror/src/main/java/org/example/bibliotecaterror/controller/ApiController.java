@@ -12,7 +12,7 @@ import java.net.http.HttpResponse;
 public class ApiController {
 
 
-        public void llamadaApi(String url){
+        public Biblioteca llamadaApi(String url){
 
             HttpClient httpClient = HttpClient.newHttpClient();
 
@@ -22,26 +22,17 @@ public class ApiController {
 
 
             try {
-               httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+                httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
 
                 Gson gson = new Gson();
-                Biblioteca biblioteca = gson.fromJson(httpResponse.body(), Biblioteca.class);
-                biblioteca.libros.forEach(libro -> {
-                    System.out.printf("""
-                            Id: %d
-                            Nombre: %s
-                            paginas: %d
-                            """, libro.getId()
-                    ,libro.getTitle()
-                    ,libro.getPages());
+                return gson.fromJson(httpResponse.body(), Biblioteca.class);
 
-                });
             } catch (IOException e) {
                 System.out.println("Error de IO");
             } catch (InterruptedException e) {
                 System.out.println("Error de red");
             }
-
+            return null;
         }
 
 }
