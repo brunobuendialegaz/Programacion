@@ -19,7 +19,5 @@ public class MainApplication extends Application {
         stage.setTitle("Biblioteca Bruno Buendia Legaz");
         stage.setScene(scene);
         stage.show();
-        ApiController apiController = new ApiController();
-        apiController.llamadaApi("https://stephen-king-api.onrender.com/api/books");
     }
 }
