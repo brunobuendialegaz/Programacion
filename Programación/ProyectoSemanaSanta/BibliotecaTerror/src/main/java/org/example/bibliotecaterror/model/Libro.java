@@ -5,10 +5,14 @@ import com.google.gson.annotations.SerializedName;
 import javafx.collections.ObservableList;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
-public class Libro {
+public class Libro implements Serializable {
+    //Hacemos la clase serializable y añadimos el serialVersionUID para poder
+    //guardar los libros favoritos en favoritos.obj
+    private static final long serialVersionUID = 1L;
 //region pepito
     @SerializedName("id")
     @Expose

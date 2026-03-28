@@ -33,15 +33,14 @@
                   <Insets />
                </GridPane.margin>
             </TextField>
-          <Button fx:id="botonLista" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Lista General" GridPane.columnIndex="1">
+          <Button fx:id="botonLista" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Lista General" GridPane.columnIndex="2">
                <font>
                   <Font name="Ink Free" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="botonListaFav" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Lista Favoritos" GridPane.columnIndex="2" />
-            <Button fx:id="botonFav" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir favoritos" GridPane.columnIndex="3" />
-            <Button fx:id="botonLibro" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Abrir libro" GridPane.columnIndex="4" />
-            <Button fx:id="importar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Importar" GridPane.columnIndex="5" />
+            <Button fx:id="botonListaFav" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Lista Favoritos" GridPane.columnIndex="3" />
+            <Button fx:id="botonFav" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Añadir/borrar fav" GridPane.columnIndex="4" />
+            <Button fx:id="botonLibro" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Abrir libro" GridPane.columnIndex="5" />
             <Button fx:id="exportar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Exportar" GridPane.columnIndex="6" />
          </children>
       </GridPane>

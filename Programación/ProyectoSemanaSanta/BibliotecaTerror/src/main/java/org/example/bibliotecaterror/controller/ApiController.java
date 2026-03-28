@@ -23,7 +23,7 @@ public class ApiController {
 
             try {
                 httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
-
+                //Decido usar Gson, me parece el mas sencillo y completo
                 Gson gson = new Gson();
                 return gson.fromJson(httpResponse.body(), Biblioteca.class);
 

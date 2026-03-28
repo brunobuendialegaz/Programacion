@@ -9,9 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0"
-            prefWidth="1098.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.bibliotecaterror.controller.BookViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="706.0" prefWidth="1098.0" stylesheets="@styles/style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.bibliotecaterror.controller.BookViewController">
 
     <right>
         <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" styleClass="panel-oscuro" BorderPane.alignment="CENTER_RIGHT">
@@ -19,19 +17,20 @@
                 <Insets right="50.0" />
             </BorderPane.margin>
             <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Text fx:id="titulo" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-destacado" text="Titulo" />
-                <Text fx:id="fechaLanzamiento" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-destacado" text="Fecha lanzamiento" GridPane.rowIndex="1" />
-                <Text fx:id="numPaginas" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-destacado" text="num paginas" GridPane.rowIndex="2" />
-                <Text fx:id="nominaciones" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-destacado" text="Nominaciones" GridPane.rowIndex="3" />
+                <Text fx:id="titulo" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-destacado" text="Titulo" GridPane.columnSpan="2" />
+                <Text fx:id="fechaLanzamiento" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-destacado" text="Fecha lanzamiento" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Text fx:id="numPaginas" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-destacado" text="num paginas" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Text styleClass="texto-destacado" strokeType="OUTSIDE" strokeWidth="0.0" text="Lanzamiento" GridPane.rowIndex="1" />
+                <Text styleClass="texto-destacado" strokeType="OUTSIDE" strokeWidth="0.0" text="Paginas" GridPane.rowIndex="2" />
             </children>
         </GridPane>
     </right>
@@ -49,7 +48,7 @@
             <children>
                 <Text fx:id="isbn" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-destacado" text="ISBN" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
                 <Text fx:id="editorial" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-destacado" text="EDITORIAL" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-destacado" text="Favorito" GridPane.halignment="CENTER" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="texto-destacado" text="EDITORIAL:" GridPane.halignment="CENTER" />
             </children>
         </GridPane>
     </bottom>
@@ -68,12 +67,11 @@
             <RowConstraints minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="botonLista1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Lista General" GridPane.columnIndex="5">
+            <Button fx:id="botonLista1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Lista General" GridPane.columnIndex="6">
                <font>
                   <Font name="Ink Free" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="botonListaFav1" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="Lista Favoritos" GridPane.columnIndex="6" />
          </children>
       </GridPane>
    </top>
