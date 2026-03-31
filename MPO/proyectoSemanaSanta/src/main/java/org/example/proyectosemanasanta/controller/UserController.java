@@ -12,7 +12,10 @@ import java.util.ResourceBundle;
 public class UserController implements Initializable {
 
     @FXML
-    private Button CheckInOutButton;
+    private Button checkInOutButton;
+
+    @FXML
+    private Button logOutButton;
 
 
     @Override
