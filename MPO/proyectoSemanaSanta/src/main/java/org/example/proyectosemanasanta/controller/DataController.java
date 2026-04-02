@@ -29,17 +29,17 @@ public class DataController {
 
     public ObservableList<User> importUsers(){
         File file = new File(ruta);
+        if (!file.exists() || file.length() == 0) {
+            return null;
+        }
 
         try (FileInputStream fileInputStream = new FileInputStream(file);
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
             return FXCollections.observableArrayList((List<User>)(objectInputStream.readObject()));
 
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
+        return FXCollections.observableArrayList();
     }
 }

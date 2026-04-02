@@ -35,6 +35,9 @@ public class AdminCheckInOutController implements Initializable {
     @FXML
     private TableColumn<Record, String> typeColumn;
 
+    @FXML
+    private TableColumn<?, ?> nameColumn;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

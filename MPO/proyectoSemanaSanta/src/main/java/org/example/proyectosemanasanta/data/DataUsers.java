@@ -22,10 +22,15 @@ public class DataUsers implements Serializable {
     private final DataController dataController = new DataController();
 
     private DataUsers(){
+        ObservableList<User> importUsers = dataController.importUsers();
         users = FXCollections.observableArrayList();
-        users.add(new User("admin", "admin", "dni", "admin@gmail.com", "admin", FXCollections.observableArrayList()));
-        users.add(new User("user", "user", "dni", "user@gmail.com", "user", FXCollections.observableArrayList()));
-        instance.setUsers(dataController.importUsers());
+
+        if (importUsers == null){
+            users.add(new User("admin", "admin", "dni", "admin@gmail.com", "admin", FXCollections.observableArrayList()));
+            users.add(new User("user", "user", "dni", "user@gmail.com", "user", FXCollections.observableArrayList()));
+        } else {
+            users = importUsers;
+        }
     }
 
     private void setUsers(ObservableList<User> users) {
