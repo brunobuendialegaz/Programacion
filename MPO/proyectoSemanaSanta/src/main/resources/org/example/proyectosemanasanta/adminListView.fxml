@@ -10,9 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.example.proyectosemanasanta.controller.AdminListController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.proyectosemanasanta.controller.viewController.AdminListController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -54,6 +52,8 @@
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
@@ -61,15 +61,25 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Form" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
-            <Button fx:id="userFormButton" mnemonicParsing="false" prefWidth="100.0" text="User Form" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Form" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
+            <Button fx:id="userFormButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="User Form" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets right="5.0" />
+                  <Insets left="5.0" right="5.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="logOutButton" mnemonicParsing="false" prefWidth="100.0" text="Log Out" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="logOutButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Log Out" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <GridPane.margin>
-                  <Insets left="5.0" />
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="CheckInOutButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Check In/Out" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="CheckInOutList" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Check In/Out List" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" right="5.0" />
                </GridPane.margin>
             </Button>
          </children>

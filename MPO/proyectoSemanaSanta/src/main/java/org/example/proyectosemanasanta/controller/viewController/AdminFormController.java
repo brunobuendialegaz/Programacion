@@ -1,4 +1,4 @@
-package org.example.proyectosemanasanta.controller;
+package org.example.proyectosemanasanta.controller.viewController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,6 +15,15 @@ public class AdminFormController implements Initializable {
     private Button addButton;
 
     @FXML
+    private RadioButton adminRadio;
+
+    @FXML
+    private Button checkInOut;
+
+    @FXML
+    private Button checkInOutList;
+
+    @FXML
     private Button clearButton;
 
     @FXML
@@ -24,19 +33,33 @@ public class AdminFormController implements Initializable {
     private TextField firstNameField;
 
     @FXML
+    private Button logOutButton;
+
+    @FXML
     private TextField mail;
 
     @FXML
     private TextField secondNameField;
 
     @FXML
-    private RadioButton userRadio;
+    private Button userListButton;
 
     @FXML
-    private RadioButton adminRadio;
+    private RadioButton userRadio;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        instances();
+        initGUI();
+        actions();
+    }
 
+    private void actions() {
+    }
+
+    private void initGUI() {
+    }
+
+    private void instances() {
     }
 }

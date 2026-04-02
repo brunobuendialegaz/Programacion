@@ -1,4 +1,4 @@
-package org.example.proyectosemanasanta.controller;
+package org.example.proyectosemanasanta.controller.viewController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,19 +15,19 @@ import java.util.ResourceBundle;
 public class AdminListController implements Initializable {
 
     @FXML
+    private Button CheckInOutButton;
+
+    @FXML
+    private Button CheckInOutList;
+
+    @FXML
     private Button delButton;
 
     @FXML
     private Button logOutButton;
 
     @FXML
-    private TableColumn<User, String> mailColumn;
-
-    @FXML
     private Button showDetButton;
-
-    @FXML
-    private TableColumn<User, String> userColumn;
 
     @FXML
     private Button userFormButton;
@@ -35,9 +35,26 @@ public class AdminListController implements Initializable {
     @FXML
     private TableView<User> userTable;
 
+    @FXML
+    private TableColumn<User, String> userColumn;
+
+    @FXML
+    private TableColumn<User, String> mailColumn;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        instances();
+        initGUI();
+        actions();
+    }
 
+    private void actions() {
+    }
+
+    private void initGUI() {
+    }
+
+    private void instances() {
     }
 }

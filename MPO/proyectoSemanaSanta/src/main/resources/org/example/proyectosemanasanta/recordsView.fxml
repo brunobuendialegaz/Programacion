@@ -20,28 +20,17 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="delButton" mnemonicParsing="false" prefWidth="100.0" text="Delete" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+            <Button fx:id="delButton" mnemonicParsing="false" prefWidth="100.0" text="Delete" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4">
                <GridPane.margin>
                   <Insets bottom="10.0" />
                </GridPane.margin>
             </Button>
-            <Text fx:id="nameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre Usuario">
-               <GridPane.margin>
-                  <Insets left="30.0" />
-               </GridPane.margin>
-            </Text>
-            <Text fx:id="mailText" strokeType="OUTSIDE" strokeWidth="0.0" text="mail.mail@gmail.com" GridPane.columnIndex="1">
-               <GridPane.margin>
-                  <Insets left="30.0" />
-               </GridPane.margin>
-            </Text>
-            <TableView fx:id="recordsTable" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="4">
+            <TableView fx:id="recordsTable" GridPane.columnSpan="2" GridPane.rowSpan="4">
               <columns>
                 <TableColumn fx:id="timeColumn" prefWidth="300.0" text="Time" />
                 <TableColumn fx:id="typeColumn" prefWidth="297.0" text="Type" />
@@ -59,7 +48,6 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
@@ -67,8 +55,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Form" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-            <Button fx:id="logOutButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Log Out" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Check In/Out View" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
+            <Button fx:id="logOutButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Log Out" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>
@@ -79,11 +67,6 @@
                </GridPane.margin>
             </Button>
             <Button fx:id="checkInOutButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Check In/Out" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="5.0" right="5.0" />
-               </GridPane.margin>
-            </Button>
-            <Button fx:id="checkInOutListButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Check In/Out List" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="5.0" right="5.0" />
                </GridPane.margin>

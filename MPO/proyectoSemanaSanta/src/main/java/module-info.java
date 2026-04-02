@@ -10,6 +10,8 @@ module org.example.proyectosemanasanta {
 
     opens org.example.proyectosemanasanta.controller to javafx.fxml, lombok;
     opens org.example.proyectosemanasanta.model to javafx.fxml, lombok;
+    opens org.example.proyectosemanasanta.controller.viewController to javafx.fxml, lombok;
+    exports org.example.proyectosemanasanta.controller.viewController;
 
 
 }
