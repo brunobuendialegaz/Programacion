@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 @Data
-public class UserController implements Initializable {
+public class UserController extends BaseController implements Initializable {
 
     @FXML
     private Button checkInOutButton;
@@ -18,22 +18,15 @@ public class UserController implements Initializable {
     @FXML
     private Button logOutButton;
 
-    private User user;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        instances();
-        initGUI();
         actions();
     }
 
     private void actions() {
+        checkInOutButton.setOnAction(event -> checkInOut(getUser()));
+        logOutButton.setOnAction(this::logOut);
     }
 
-    private void initGUI() {
-    }
-
-    private void instances() {
-    }
 }

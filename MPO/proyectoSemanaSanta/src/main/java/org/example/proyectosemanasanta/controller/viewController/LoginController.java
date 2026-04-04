@@ -40,9 +40,9 @@ public class LoginController implements Initializable {
         loginButton.setOnAction(event -> {
             String email = emailField.getText();
             String pass = passwordField.getText();
-            Optional<User> user = DataUsers.getInstance().getUsers().stream().filter(item -> item.getCorreo().toLowerCase().equals(email)).findAny();
-            if (user.isPresent() && user.get().getDni().equalsIgnoreCase(pass)
-                    && user.get().getTipoUsuario().equalsIgnoreCase("admin")) {
+            Optional<User> user = DataUsers.getInstance().getUsers().stream().filter(item -> item.getMail().toLowerCase().equals(email)).findAny();
+            if (user.isPresent() && user.get().getDni().equals(pass)
+                    && user.get().getUserType().equalsIgnoreCase("admin")) {
                 try {
                     Stage adminView = new Stage();
                     FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("adminView.fxml"));
@@ -59,8 +59,8 @@ public class LoginController implements Initializable {
                 }
 
 
-            } else if (user.isPresent() && user.get().getDni().equalsIgnoreCase(pass)
-                    && user.get().getTipoUsuario().equalsIgnoreCase("user")) {
+            } else if (user.isPresent() && user.get().getDni().equals(pass)
+                    && user.get().getUserType().equalsIgnoreCase("user")) {
                 try {
                     Stage userView = new Stage();
                     FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("userView.fxml"));

@@ -3,21 +3,20 @@ package org.example.proyectosemanasanta.data;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lombok.Data;
-import lombok.Getter;
 import org.example.proyectosemanasanta.controller.DataController;
-import org.example.proyectosemanasanta.model.Record;
 import org.example.proyectosemanasanta.model.User;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
-@Getter
+@Data
 public class DataUsers implements Serializable {
 
     private static DataUsers instance;
 
     private ObservableList<User> users;
+
+    private User focusUser;
 
     private final DataController dataController = new DataController();
 
@@ -26,8 +25,8 @@ public class DataUsers implements Serializable {
         users = FXCollections.observableArrayList();
 
         if (importUsers == null){
-            users.add(new User("admin", "admin", "dni", "admin@gmail.com", "admin", FXCollections.observableArrayList()));
-            users.add(new User("user", "user", "dni", "user@gmail.com", "user", FXCollections.observableArrayList()));
+            users.add(new User("admin", "admin", "dni", "admin@gmail.com", "admin", new ArrayList<>()));
+            users.add(new User("user", "user", "dni", "user@gmail.com", "user", new ArrayList<>()));
         } else {
             users = importUsers;
         }
